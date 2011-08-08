@@ -181,3 +181,4 @@ var Creep = Class.create(Unit, {
 		this.dead = true
 	}
 })	
+
