@@ -1,4 +1,4 @@
-
+//vsr x
 var Creep = Class.create(Unit, {
 	parent : "creep",
 	speeds : [0, 1.08, 2.245, 4.852, 6.023, 7.945, 11.71, 22.625],
@@ -16,6 +16,7 @@ var Creep = Class.create(Unit, {
 	initialize : function($super,x,y,scene, extension){
 		$super(x,y,scene,extension)
 		Map.grid[x][y].push(this)
+		alert("HERE");
 		// find the nearest empty tile
 		if(x == 0){
 			this.rotation = 0
@@ -68,60 +69,7 @@ var Creep = Class.create(Unit, {
 			if(top != 1 && bottom != 1){
 				move = true
 				this.turningPoint = [0, 0]
-			}else{
-				if(this.turningPoint[0] == 0 && this.turningPoint[1] == 0){
-					this.turningPoint = [this.x, this.y]
-					//move = true
-				}else if(bottom == 1 && (this.shouldNotTurn(this.bottom)) ){
-					move = true
-				}else if(top == 1 && (this.shouldNotTurn(this.top)) ){
-					move = true
-				}else{
-					// we need to rotate now, which direction ?
-					var b = bottom > 1 ? 0 : bottom
-					var t = top > 1 ? 0 : top
-					this.direction = b - t
-					this.rotating = true
-					this.oldTheta = this.rotation
-					this.oldSpeed = this.speed
-					var self = this
-					this.index = this.speeds.collect(function(speed, index){
-						return [Math.abs(self.speed - speed), index];
-					}).select(function(t){
-						if(t[0] <= self.speed) return true
-					}).sort(function(a, b){
-						return a[0] - b[0];
-					})[0][1]
-					this.speed = this.speeds[this.index]
-					this.rotation+= this.direction * this.angles[this.index]
-					this.x += this.speed * Math.cos(this.rotation * Math.PI / 180 );
-					this.y += this.speed * Math.sin(this.rotation * Math.PI / 180 );
-				}
-			}
-		}else{		
-			this.rotation+= this.direction * this.angles[this.index]
-			this.x += this.speed * Math.cos(this.rotation * Math.PI / 180 );
-			this.y += this.speed * Math.sin(this.rotation * Math.PI / 180 );
-			if(Math.abs(this.rotation - this.oldTheta) >= 90){
-				this.rotation = this.oldTheta + this.direction * 90 
-				if(this.rotation < 0) this.rotation += 360;
-				if(this.rotation >= 360) this.rotation -= 360;
-				this.speed = this.oldSpeed
-				this.rotating = false
-				this.x = Math.round((this.x/4))*4
-				this.y = Math.round((this.y/4))*4
-				this.turningPoint = [0, 0]
-			}
-		}
-		if(move){
-			if(this.rotation == 0){
-				this.x += this.speed
-			}else if(this.rotation == 90){
-				this.y += this.speed
-			}else if(this.rotation == 180){
-				this.x -= this.speed
-			}else if(this.rotation == 270){
-				this.y -= this.speed
+		
 			}
 		}
 		var newGridX = Math.floor(this.x / Map.pitch) 
