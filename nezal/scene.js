@@ -95,13 +95,12 @@ var Scene = Class.create(_Render, {
 		this.push(1, function(){self._tick()})
 	},
 	render : function(){
-		// try{
-			// this.layers.invoke('render');
-			// this.count++;
-		// 				
-		// }catch(x){
-			// console.log(x)
-		// }
+		try{
+			this.layers.invoke('render');
+						
+		}catch(x){
+			console.log(x)
+		}
 	},
 	toggleSound : function(){
 		Game.sound = !Game.sound
