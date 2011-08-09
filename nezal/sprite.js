@@ -31,7 +31,7 @@ var Sprite = Class.create({
 		);
 		
 		this.spriteDiv.addClassName(owner.toString());
-		$("gamediv").appendChild(this.my_div);
+		$("gamediv").appendChild(this.spriteDiv);
 		this.img = new Element('img', {
 			src : this.images[0]?this.images[0].src:this.images['base'].src
 		});
@@ -90,11 +90,7 @@ var Sprite = Class.create({
 	}
 	,
 	render : function(ctx) {
-		// if(this.owner.dead) {
-			// return this.destroy()
-		// }
-		// if(!this.visible)
-			// return
+		this.updatePos();
 	},
 	destroy : function() {
 		this.layer = null
