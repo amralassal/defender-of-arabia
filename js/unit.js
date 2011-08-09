@@ -3,7 +3,7 @@ var Unit = Class.create({
 	hp: 100, maxHp: 100, 
 	fired: false,
 	power: 2.5, range: 2,
-	x: 0, y: 0
+	x: 0, y: 0 ,
 	
 	initialize: function(x, y,scene){
 		this.x = x
@@ -16,10 +16,10 @@ var Unit = Class.create({
 	target: function(){
 	},
 	
-	moveTo() : function(){
+	moveTo : function(){
 	},
 	
-	rotate() : function(){
+	rotate : function(){
 	},
 	
 	getTargetfromCell: function(cell, targets){
@@ -37,4 +37,4 @@ var Unit = Class.create({
 	},
 	
 
-})
+});

@@ -11,7 +11,7 @@ var Game = Class.create({
 		 "mystry_button.png",
 		 "path.png"
 		 ];
-		 new Loader().load([{images : gameElementsImages, path: 'images/test/', store: 'game_elements'}], {onFinish:function(){
+		 new Loader().load([{images : gameElementsImages, path: '../images/test/', store: 'game_elements'}], {onFinish:function(){
 			// self.scene.start();
 			// var control =  new GameController(self);
 		}});
