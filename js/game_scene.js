@@ -2,8 +2,9 @@
  * @author Mazen
  */
 var GameScene = Class.create(Scene,{
-	initialize : function($super){
+	initialize : function($super,game){
 		$super();
+		this.game = game
 		this.groundLayer = new Layer(0);
 		this.buildingLayer = new Layer(600);
 		this.flyingLayer = new Layer(1200);
@@ -14,7 +15,9 @@ var GameScene = Class.create(Scene,{
 	initScene :function(){
 		this.addTower();
 		this.addTank();
-			
+		this.game.menu.addWeapon("heal_button");
+		this.game.menu.addWeapon("hyper_button");
+		this.game.menu.addWeapon("weak_button");
 	},
 	
 	addTower : function(){

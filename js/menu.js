@@ -6,6 +6,7 @@ var Menu =  Class.create({
 	initialize:function(parameters,actionHandler){
 		this.actionHandler = actionHandler;
 		this.towerDiv = new Hash();
+		this.counter = 0;
 		this.initSprites();
 	},
 	
@@ -15,7 +16,7 @@ var Menu =  Class.create({
 		
 	},
 	initMenuSprite : function(){
-			this.menuDiv = $(document.createElement('div')).setStyle({
+		this.menuDiv = $(document.createElement('div')).setStyle({
 			position:'absolute',
 			left:'0px',
 			top: '0px',
@@ -42,7 +43,21 @@ var Menu =  Class.create({
 		});
 		tDiv.appendChild(tImg);
 		}
+	},
+	
+	addWeapon : function (name){
+		
+		this.towerDiv.get("name"+this.counter).removeChild(this.towerDiv.get("name"+this.counter).lastChild);
+		var img = new Element('img', {
+			src : Loader.images.game_elements[name+'.png'].src
+		});
+		this.towerDiv.get("name"+this.counter).appendChild(img);
+		this.counter+=1//increase counter to get next div
+		
+		
+		//add action 
 	}
+	
 	
 	
 })

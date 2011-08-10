@@ -1,10 +1,12 @@
 var Game = Class.create({
 	initialize: function(){
 		var gameElementsImages = [
-		"doubleturret_button.png", 
-		"heal_button.png", 
-		"heal_button_off.png",
+		 "doubleturret_button.png", 
+		 "heal_button.png", 
+		 "heal_button_off.png",
 		 "l_shape.png", 
+		 "hyper_button.png",
+		 "weak_button.png",
 		 "mystry_button.png",
 		 "path.png",
 		 "tower_base.png",
@@ -14,15 +16,14 @@ var Game = Class.create({
 		 "humvee_tower.png",
 		 "humvee_tower_in_action.png"
 		 ];
-		 this.scene = new GameScene();
+		
 		 var self = this
-		// alert("here");
 		 new Loader().load([{images : gameElementsImages, path: 'images/', store: 'game_elements'}], {onFinish:function(){
-	     console.log("load complete");
-	     console.log(Loader.images.game_elements)
-	     self.scene.start();
-	     self.scene.initScene();
-			new Menu()
+	     this.menu = new Menu();
+		 this.scene = new GameScene(this);
+	     this.scene.start();
+	     this.scene.initScene();
+		 
 		}});
 		
 	

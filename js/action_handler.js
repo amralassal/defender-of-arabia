@@ -5,11 +5,11 @@ var ActionHandler =  Class.create({
 	selectedObject : null ,
 	selectedTower : null,
 	
-	initailize: function(){
+	initailize : function(){
 		
 	},
 	
-	addAction:function(div , action , onEvent){
+	addAction : function(div , action , onEvent){
 		
 	},
 	
