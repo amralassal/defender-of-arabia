@@ -9,9 +9,12 @@ var Game = Class.create({
 		"heal_button_off.png",
 		 "l_shape.png", 
 		 "mystry_button.png",
-		 "path.png"
+		 "path.png",
+		 "tower_base.png",
+		 "reaper_3.png",
+		 "reaper_3_inaction_left.png"
 		 ];
-		 new Loader().load([{images : gameElementsImages, path: 'images/test/', store: 'game_elements'}], {onFinish:function(){
+		 new Loader().load([{images : gameElementsImages, path: 'images/', store: 'game_elements'}], {onFinish:function(){
 			// self.scene.start();
 			// var control =  new GameController(self);
 		}});
