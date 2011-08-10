@@ -1,10 +1,9 @@
-var Tower = Class.create(Unit,{
+var TankI = Class.create(Creep,{
 
-	initialize : function($super,x,y,scene){
+	initialize : function($super,x,y){
 		$super(x,y)
 		this.x = x
 		this.y = y
-		this.scene=scene
 		this.rotation = 0;
 	},
 	
