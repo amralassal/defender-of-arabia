@@ -32,6 +32,9 @@ var Sprite = Class.create({
 	rotate : function(deg) {
 		return this
 	},
+	rotateAround : function(x,y,deg){
+		return this
+	},
 	show : function() {
 		return this
 	},

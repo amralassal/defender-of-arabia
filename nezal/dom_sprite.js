@@ -9,15 +9,16 @@ var DomSprite = Class.create({
 		}
 		);
 		
-		this.div.addClassName(owner.toString());
+		// this.div.addClassName(owner.toString());
 		$("gamediv").appendChild(this.div);
-		this.img = new Element('img', {
-			src : this.images[0]
-		});
-		this.div.appendChild(this.img);
+		this.div.appendChild(this.images[0]);
 
 	},
-	
+	setCurrentFrame : function(index){
+		this.currentFrame = index;
+		this.div.removeChild(this.dev.firstChild);
+		this.div.appendChild(this.images[i]);
+	},
 	moveTo : function(x, y) {
 		this.x = x
 		this.y = y
@@ -28,11 +29,28 @@ var DomSprite = Class.create({
 		return this
 	},
 	rotate : function(deg) {
-		this.rotation = Nezal.degToRad(deg)
+		this.rotation = deg
 		var isRotating = this.rotation != 0&&this.rotation<360;
 		if(isRotating) {
 			this.spriteDiv.setStyle({
-				transform:'rotate('+this.rotation +'deg)'
+					MozTransform : "rotate("+this.rotation +"deg)",
+					WebKitTransform : "rotate("+this.rotation+"deg)",
+					msTransform : "rotate("+this.rotation+"deg)"
+			});
+		}
+		return this
+	},
+	rotateAround : function(x,y,deg){
+		this.rotation =deg
+		var isRotating = this.rotation != 0&&this.rotation<360;
+		if(isRotating) {
+			this.spriteDiv.setStyle({
+				MozTransformOrigin : x+"px "+y+ "px",
+				MozTransform : "rotate("+this.rotation +"deg)",
+				WebKitTransformOrigin :  x+"px "+y+ "px",
+				WebKitTransform : "rotate("+this.rotation+"deg)",
+				msTransformOrigin : x+"px "+y+ "px",
+				msTransform : "rotate("+this.rotation+"deg)"
 			});
 		}
 		return this
