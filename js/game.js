@@ -16,13 +16,13 @@ var Game = Class.create({
 		 ];
 		 this.scene = new GameScene();
 		 var self = this
+		// alert("here");
 		 new Loader().load([{images : gameElementsImages, path: 'images/', store: 'game_elements'}], {onFinish:function(){
 	     console.log("load complete");
 	     console.log(Loader.images.game_elements)
 	     self.scene.start();
 	     self.scene.initScene();
-			// var control =  new GameController(self);
-			//new LMenu()
+			new Menu()
 		}});
 		
 	
