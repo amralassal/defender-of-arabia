@@ -1,11 +1,10 @@
-/**
- * @author Mazen
- */ 
+
 var Menu =  Class.create({
 	
-	initialize:function(parameters,actionHandler){
+	initialize:function(game,parameters,actionHandler){
 		this.actionHandler = actionHandler;
 		this.towerDiv = new Hash();
+		this.game = game;
 		this.counter = 0;
 		this.initSprites();
 	},
@@ -46,12 +45,14 @@ var Menu =  Class.create({
 	},
 	
 	addWeapon : function (name){
-		
-		this.towerDiv.get("name"+this.counter).removeChild(this.towerDiv.get("name"+this.counter).lastChild);
+		var div = this.towerDiv.get("name"+this.counter);
+		div.removeChild(this.towerDiv.get("name"+this.counter).lastChild);
 		var img = new Element('img', {
 			src : Loader.images.game_elements[name+'.png'].src
 		});
-		this.towerDiv.get("name"+this.counter).appendChild(img);
+		div.appendChild(img);
+		actionSelf = this.game.action
+		this.game.action.addAction(div,"actionSelf.selectTower(div)","click");
 		this.counter+=1//increase counter to get next div
 		
 		

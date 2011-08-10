@@ -18,6 +18,7 @@ var GameScene = Class.create(Scene,{
 		this.game.menu.addWeapon("heal_button");
 		this.game.menu.addWeapon("hyper_button");
 		this.game.menu.addWeapon("weak_button");
+		this.game.menu.addWeapon("doubleturret_button");
 	},
 	
 	addTower : function(){

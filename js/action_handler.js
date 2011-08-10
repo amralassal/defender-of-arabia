@@ -15,6 +15,7 @@ var ActionHandler =  Class.create({
 	
 	selectBuilding : function(div){
 		
+		
 	},
 	
 	overBuilding : function (div){
@@ -22,7 +23,7 @@ var ActionHandler =  Class.create({
 	},
 	
 	selectTower : function(div){
-		
+		alert("in select tower")
 	},
 	
 	upgradeTower : function(div){
