@@ -17,6 +17,9 @@ var Game = Class.create({
 		 new Loader().load([{images : gameElementsImages, path: 'images/', store: 'game_elements'}], {onFinish:function(){
 			// self.scene.start();
 			// var control =  new GameController(self);
+			console.log("load complete");
+			new LMenu()
 		}});
+	
 	}
 })

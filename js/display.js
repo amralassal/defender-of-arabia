@@ -1,6 +1,7 @@
 var Display = Class.create(Unit,{
 
-	initialize : function($super){
+	initialize : function($super,x,y){
+		$super(x,y)
 		this.initImages();
 	},
 	update : function(){},
@@ -9,24 +10,41 @@ var Display = Class.create(Unit,{
 
 
 
-var TowerDisplay = Class.create(Display,{
-	 initialize : function($super){
-		$super();
+var TowerDisplay = Class.create(Display,Tower,{
+	 initialize : function($super,x,y){
+		$super(x,y);
 		this.sprite = new Sprite([this.images],this, {rotation:0})
 	  },
 	  
  	  initImages : function(){
 		this.images = {
-			base : Loader.images.game['humvee_body.png'],
-			cannon : Loader.images.game['humvee_tower.png'],
-			fire : Loader.images.game['humvee_tower_in_action.png']
+			base : Loader.images.game['tower_base.png'],
+			cannon : Loader.images.game['reaper_3.png'],
+			fire : Loader.images.game['reaper_3_inaction_left.png']
 		}
 	},
-	moveTo : function(x,y){
-		this.sprite.moveTo(x,y)
+	rotate : function($super) {
+		$super()
+		this.sprite.rotate(this.deg)
+	}
+})
+
+var TowerDisplay = Class.create(Display,TankI,{
+	 initialize : function($super,x,y){
+		$super(x,y);
+		this.sprite = new Sprite([this.images],this, {rotation:0})
+	  },
+	  
+ 	  initImages : function(){
+		this.images = {
+			base : Loader.images.game['tower_base.png'],
+			cannon : Loader.images.game['reaper_3.png'],
+			fire : Loader.images.game['reaper_3_inaction_left.png']
+		}
 	},
-	rotate : function(deg) {
-		this.sprite.rotate(deg)
+	rotate : function($super) {
+		$super()
+		this.sprite.rotate(this.deg)
 	}
 })
 
