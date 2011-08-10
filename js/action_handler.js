@@ -10,6 +10,7 @@ var ActionHandler =  Class.create({
 	},
 	
 	addAction:function(div , action , onEvent){
+	
 		
 	},
 	
