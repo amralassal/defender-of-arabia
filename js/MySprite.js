@@ -55,7 +55,7 @@ var MySprite = Class.create( {
 				WebKitTransformOrigin : '50% 50%',
 				WebKitTransform : "rotate("+this.rotation+"deg)",
 				msTransformOrigin : '50% 50%',
-				msTransform : "rotate("+this.rotation+"deg)",});
+				msTransform : "rotate("+this.rotation+"deg)"});
 		}
 		return this
 	},

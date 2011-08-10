@@ -10,7 +10,7 @@ var ActionHandler =  Class.create({
 	},
 	
 	addAction : function(div , action , onEvent){
-		
+		div.observe(onEvent,function(){eval(action)});
 	},
 	
 	selectBuilding : function(div){
