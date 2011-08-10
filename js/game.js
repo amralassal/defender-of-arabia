@@ -14,12 +14,14 @@ var Game = Class.create({
 		 "reaper_3_inaction_left.png",
 		 "humvee_body.png",
 		 "humvee_tower.png",
+		 "doubleturret_button.png",
 		 "humvee_tower_in_action.png"
 		 ];
 		
 		 var self = this
 		 new Loader().load([{images : gameElementsImages, path: 'images/', store: 'game_elements'}], {onFinish:function(){
-	     this.menu = new Menu();
+	     this.action = new ActionHandler();
+	     this.menu = new Menu(this);
 		 this.scene = new GameScene(this);
 	     this.scene.start();
 	     this.scene.initScene();
