@@ -16,11 +16,11 @@ var MySprite = Class.create( {
 		this.div.style.height=this.h+"px";
 		this.div.style.left=this.owner.x+"px";
 		this.div.style.top=this.owner.y+"px";
-		$('container').appendChild(this.div);
+		$('gamediv').appendChild(this.div);
 		this.draw = true
 		this.body=document.createElement("div");
 		this.body.position="absolute";
-		this.body.appendChild(this.images.base.clone());
+		this.body.appendChild(this.images.base);
 		this.div.appendChild(this.body);
 		this.cannon=document.createElement("div");
 		this.cannon.style.position="absolute";
@@ -29,7 +29,7 @@ var MySprite = Class.create( {
 		//this.cannon.style.overflow="hidden";//
 		this.images.cannon.style.position="absolute";
 		this.cannon.style.left=-5;
-		this.cannon.style.top=20;
+		this.cannon.style.top=0;
 		this.cannon.appendChild(this.images.cannon);
 		this.body.appendChild(this.cannon);
 	},
@@ -45,12 +45,17 @@ var MySprite = Class.create( {
 	},
 	
 	rotate : function(deg) {
-		this.rotation = Nezal.degToRad(deg)
-		var isRotating = this.rotation != 0&&this.rotation<360;
+		// this.rotation = Nezal.degToRad(deg)
+		this.rotation = deg;
+		var isRotating = this.rotation != 0 && this.rotation<360;
 		if(isRotating) {
 			this.cannon.setStyle({
-				transform:'rotate('+this.rotation +'deg)'
-			});
+				MozTransformOrigin : "48px 16px",
+				MozTransform : "rotate("+this.rotation +"deg)",
+				WebKitTransformOrigin : '50% 50%',
+				WebKitTrans : "rotate("+this.rotation+"deg)",
+				msTransformOrigin : '50% 50%',
+				msTransform : "rotate("+this.rotation+"deg)",});
 		}
 		return this
 	},
@@ -61,7 +66,7 @@ var MySprite = Class.create( {
           var parent = document.getElementById("container");
           parent.removeChild(child);
 	},
-	rotate : function(){
+	rotates : function(){
 		this.counter++
 		if(this.counter % 20 !=0) return 
 		var pic = new Array();

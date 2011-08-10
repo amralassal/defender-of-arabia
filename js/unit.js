@@ -54,7 +54,7 @@ var Unit = Class.create({
 	
 	rotate : function(){
 	},
-	tick () :function (){
+	tick  :function (){
 	},
 	getTargetfromCell: function(cell, targets){
 	},
@@ -80,6 +80,6 @@ var Unit = Class.create({
 	},
 	
 	fire : function(){
-	},
+	}
 
-});
+})

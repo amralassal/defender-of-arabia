@@ -1,8 +1,5 @@
-/**
- * @author Mazen
- */
 var Game = Class.create({
-	intialize: function(){
+	initialize: function(){
 		var gameElementsImages = [
 		"doubleturret_button.png", 
 		"heal_button.png", 
@@ -12,14 +9,22 @@ var Game = Class.create({
 		 "path.png",
 		 "tower_base.png",
 		 "reaper_3.png",
-		 "reaper_3_inaction_left.png"
+		 "reaper_3_inaction_left.png",
+		 "humvee_body.png",
+		 "humvee_tower.png",
+		 "humvee_tower_in_action.png"
 		 ];
+		 this.scene = new GameScene();
+		 var self = this
 		 new Loader().load([{images : gameElementsImages, path: 'images/', store: 'game_elements'}], {onFinish:function(){
-			// self.scene.start();
+	     console.log("load complete");
+	     console.log(Loader.images.game_elements)
+	     self.scene.start();
+	     self.scene.initScene();
 			// var control =  new GameController(self);
-			console.log("load complete");
-			new LMenu()
+			//new LMenu()
 		}});
+		
 	
 	}
 })

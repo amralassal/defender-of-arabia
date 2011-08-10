@@ -1,10 +1,9 @@
 var Tower = Class.create(Unit,{
 
-	initialize : function($super,x,y,scene){
+	initialize : function($super,x,y){
 		$super(x,y)
 		this.x = x
 		this.y = y
-		this.scene=scene
 		this.rotation = 0;
 	},
 	
@@ -23,8 +22,5 @@ var Tower = Class.create(Unit,{
 	rotate  : function (){
 	}
 	
-	
-	
-	
-	
+
 })
