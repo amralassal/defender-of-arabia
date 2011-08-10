@@ -1,4 +1,4 @@
-var DoMSprite = Class.create({
+var DomSprite = Class.create({
 	init:function(){
 		this.div = $(document.createElement('div')).setStyle({
 			position:'absolute',
