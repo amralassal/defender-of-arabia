@@ -14,7 +14,6 @@ var TowerDisplay = Class.create(Display,Tower,{
 	 initialize : function($super,x,y){
 		$super(x,y);
 		this.sprite = new MySprite(this.images,this, {rotation:0})
-		//this.sprite.extend(dSprite);
 		this.sprite.div.className = "Tower";
 		
 	  },

@@ -6,15 +6,15 @@ var GameScene = Class.create(Scene,{
 	initialize : function($super,game){
 		$super();
 		this.game = game
-		// this.buildingLayer = new Layer({ctx : $("gamecanvas").getContext("2d")});
-		// this.buildingLayer.extend(new CanvasLayer());
-		// this.layers.push(this.buildingLayer);
-		var domLayer = new DomLayer();
-		this.groundLayer = new Layer(0);
-		this.buildingLayer = new Layer(600);
-		this.buildingLayer.extend(domLayer);
-		this.flyingLayer = new Layer(1200);
-		this.optionLayer = new Layer(1800);
+		this.buildingLayer = new Layer({ctx : $("gamecanvas").getContext("2d")});
+		this.buildingLayer.extend(new CanvasLayer());
+		this.layers.push(this.buildingLayer);
+		// var domLayer = new DomLayer();
+		// this.groundLayer = new Layer(0);
+		// this.buildingLayer = new Layer(600);
+		// this.buildingLayer.extend(domLayer);
+		// this.flyingLayer = new Layer(1200);
+		// this.optionLayer = new Layer(1800);
 		
 	},
 	
