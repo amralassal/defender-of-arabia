@@ -3,11 +3,14 @@ var LevelEditor = Class.create({
 	initialize : function (directory){
 		this.bgDirectory = directory
 		console.log(this.bgDirectory);
-		document.getElementById("drawingarea").setStyle({ "background-image": "url ("+this.bgDirectory+")" });
+		var img = new Image();
+		img.src = this.bgDirectory;
 		this.imageDiv = new Hash();
 		this.imageMenuDiv = document.createElement('div');
 		this.imageMenuDiv.id="images";
 		$("container").appendChild(this.imageMenuDiv);
+		$("drawingarea").appendChild(img);
+		console.log(img)
 		this.arrImage = new Array();
 		var img1 = new Image();
 		img1.src = "images/mystry_button.png";
