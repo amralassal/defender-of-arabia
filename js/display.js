@@ -14,7 +14,6 @@ var TowerDisplay = Class.create(Display,Tower,{
 	 initialize : function($super,x,y){
 		$super(x,y);
 		this.sprite = new MySprite(this.images,this, {rotation:0})
-		//this.sprite.extend(dSprite);
 		this.sprite.div.className = "Tower";
 		
 	  },
@@ -64,13 +63,16 @@ var imagedisplay = Class.create(Display,TankI,{
 	initialize : function($super,x,y){
 		$super(x,y);
 		var dSprite = new DomSprite();
+		var cSprite = new CanvasSprite();
 		this.sprite = new Sprite(this.images,this,{rotation:0});
-		this.sprite.extend(dSprite);
+		this.sprite.extend(cSprite);
+		this.sprite.moveTo(x,y);
 		
 	},
 	initImages : function (){
 		this.images=
 		{ 0 : Loader.images.game_elements['humvee_body.png']}
+
 		
 	}
 })

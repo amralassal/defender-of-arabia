@@ -59,6 +59,17 @@ var DomSprite = Class.create({
 		}
 		return this
 	},
+	setCenter: function(x,y){
+		this.centerX = x
+		this.centerY = y
+		return this
+	},
+	rotateBy : function(deg){
+		this.centerX = x;
+		this.centerY = y;
+		this.rotation += Nezal.degToRad(deg)
+		return this
+	},
 	show : function() {
 		this.div.setStyle({display : 'block'});
 		return this
