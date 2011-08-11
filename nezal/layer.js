@@ -5,12 +5,14 @@ var Layer = Class.create({
 		this.visible = true
 		this.options = options || {};
 	},
+	
 	extend : function(obj){
 		Object.extend(this,obj);
 		this.init();	
 	},
 	
 	attach : function(sprite){
+		alert("in attach layer")
 		sprite.layer = this
 		this.sprites.push(sprite)
 		return this

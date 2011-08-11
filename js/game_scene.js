@@ -2,16 +2,19 @@
  * @author Mazen
  */
 var GameScene = Class.create(Scene,{
+	
 	initialize : function($super,game){
 		$super();
 		this.game = game
-		// this.groundLayer = new Layer();
-		
-		this.buildingLayer = new Layer({ctx : $("gamecanvas").getContext("2d")});
-		this.buildingLayer.extend(new CanvasLayer());
-		this.layers.push(this.buildingLayer);
-		// this.flyingLayer = new Layer();
-		// this.optionLayer = new Layer();
+		// this.buildingLayer = new Layer({ctx : $("gamecanvas").getContext("2d")});
+		// this.buildingLayer.extend(new CanvasLayer());
+		// this.layers.push(this.buildingLayer);
+		var domLayer = new DomLayer();
+		this.groundLayer = new Layer(0);
+		this.buildingLayer = new Layer(600);
+		this.buildingLayer.extend(domLayer);
+		this.flyingLayer = new Layer(1200);
+		this.optionLayer = new Layer(1800);
 		
 	},
 	
@@ -27,12 +30,13 @@ var GameScene = Class.create(Scene,{
 	
 	addTower : function(){
 		var towerDisplay = new TowerDisplay(50,50);
-		this.buildingLayer.attach(towerDisplay);
+		this.buildingLayer.attach(towerDisplay.sprite);
 	},
 	
 	addTank : function(){
 		var tankDisplay = new TankIDisplay(200,200);
-		this.buildingLayer.attach(tankDisplay);
+		alert("in add tank")
+		this.buildingLayer.attach(tankDisplay.sprite);
 		tankDisplay.moveTo(10,10);
 		tankDisplay.rotate(90);
 		
