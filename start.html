@@ -33,17 +33,18 @@
 </head>
 <body>
 <script type=text/javascript>
-		    window.onload = startGame;
-			function startGame (){
+  
+		    window.onload = startGame("gamediv");
+			function startGame (name){
 			
-				game = new Game();
+				game = new Game(name);
 			};
 			
 </script>
 <canvas id="gamecanvas"  width="700" height="450" style = "position:absolute;
 			left:50px;
 			top:50px;" ></canvas>
-	<div id="gamediv" style = "position:absolute;
+<div id="gamediv" style = "position:absolute;
 			left:50px;
 			top:50px;
 			width:760px;
