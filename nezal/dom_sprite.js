@@ -1,5 +1,6 @@
 var DomSprite = Class.create({
-	init:function(){
+	initialize:function($super){
+		$super();
 		this.div = $(document.createElement('div')).setStyle({
 			position:'absolute',
 			left:this.owner.x+'px',
@@ -9,7 +10,6 @@ var DomSprite = Class.create({
 		}
 		);
 		
-		// this.div.addClassName(owner.toString());
 		$("gamediv").appendChild(this.div);
 		this.div.appendChild(this.images[0]);
 
