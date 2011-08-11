@@ -52,7 +52,7 @@ var Menu =  Class.create({
 		});
 		div.appendChild(img);
 		actionSelf = this.game.action
-		this.game.action.addAction(div,"actionSelf.selectTower(div)","click");
+		this.game.action.addAction(div,actionSelf.selectTower,"click");
 		this.counter+=1//increase counter to get next div
 		
 		
