@@ -10,6 +10,11 @@ var CanvasSprite = Class.create({
 		this.y = y
 		return this
 	},
+	moveTo : function(x, y) {
+		this.x += x
+		this.y += y
+		return this
+	},
 	rotate : function(deg) {
 		this.rotation = Nezal.degToRad(deg)
 		return this
