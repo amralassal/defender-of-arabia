@@ -24,7 +24,8 @@ var ActionHandler =  Class.create({
 	},
 	
 	selectTower : function(div){
-		alert("in select tower")
+		alert("click !")
+		
 	},
 	
 	upgradeTower : function(div){
