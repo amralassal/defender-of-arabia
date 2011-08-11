@@ -22,7 +22,8 @@ var Game = Class.create({
 		 new Loader().load([{images : gameElementsImages, path: 'images/', store: 'game_elements'}], {onFinish:function(){
 	     this.action = new ActionHandler();
 	     this.menu = new Menu(this);
-		 this.scene = new GameScene(this);
+		// this.scene = new GameScene(this);
+		this.scene = new CanvasGameScene();
 	     this.scene.start();
 	     this.scene.initScene();
 		 
