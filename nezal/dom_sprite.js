@@ -1,8 +1,7 @@
 var DomSprite = Class.create({
-	
-	initialize:function(){
-			//$super();
-			this.div = $(document.createElement('div')).setStyle({
+
+	init:function(){
+		this.div = $(document.createElement('div')).setStyle({
 			position:'absolute',
 			left:this.owner.x+'px',
 			top:this.owner.y+'px',
