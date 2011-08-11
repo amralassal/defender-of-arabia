@@ -1,24 +1,28 @@
 var DomSprite = Class.create({
-	initialize:function($super){
-		$super();
-		this.div = $(document.createElement('div')).setStyle({
+	
+	initialize:function(){
+			//$super();
+			this.div = $(document.createElement('div')).setStyle({
 			position:'absolute',
 			left:this.owner.x+'px',
 			top:this.owner.y+'px',
 			width: this.owner.width+'px',
 			height:this.owner.length+'px'
+			
 		}
+	
 		);
-		
+			alert("in sprite dom");
 		$("gamediv").appendChild(this.div);
-		this.div.appendChild(this.images[0]);
+		this.div.appendChild(this.images.first);
 
 	},
-	setCurrentFrame : function(index){
-		this.currentFrame = index;
+	setCurrentFrame : function(i){
+		this.currentFrame = i;
 		this.div.removeChild(this.dev.firstChild);
 		this.div.appendChild(this.images[i]);
 	},
+	
 	moveTo : function(x, y) {
 		this.x = x
 		this.y = y

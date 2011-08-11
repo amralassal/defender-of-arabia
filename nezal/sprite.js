@@ -22,7 +22,7 @@ var Sprite = Class.create({
 		}
 		this.currentFrame = 0
 		this.draw = true;
-		this.init();
+        alert("in sprite")
 	},
 	moveTo : function(x, y) {
 		this.x = x
