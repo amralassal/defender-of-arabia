@@ -2,11 +2,14 @@
  * @author Mazen
  */
 var GameScene = Class.create(Scene,{
+	
 	initialize : function($super,game){
 		$super();
 		this.game = game
+		var domLayer = new DomLayer();
 		this.groundLayer = new Layer(0);
 		this.buildingLayer = new Layer(600);
+		this.buildingLayer.extend(domLayer);
 		this.flyingLayer = new Layer(1200);
 		this.optionLayer = new Layer(1800);
 		
@@ -24,12 +27,13 @@ var GameScene = Class.create(Scene,{
 	
 	addTower : function(){
 		var towerDisplay = new TowerDisplay(50,50);
-		this.buildingLayer.attach(towerDisplay);
+		this.buildingLayer.attach(towerDisplay.sprite);
 	},
 	
 	addTank : function(){
 		var tankDisplay = new TankIDisplay(200,200);
-		this.buildingLayer.attach(tankDisplay);
+		alert("in add tank")
+		this.buildingLayer.attach(tankDisplay.sprite);
 		tankDisplay.moveTo(10,10);
 		tankDisplay.rotate(90);
 		
@@ -37,6 +41,6 @@ var GameScene = Class.create(Scene,{
 	
 	addImage : function(){
 		var imageDisp = new imagedisplay(300,300);
-		this.buildingLayer.attach(imageDisp);
+		this.buildingLayer.attach(imageDisp.sprite);
 	}
 })

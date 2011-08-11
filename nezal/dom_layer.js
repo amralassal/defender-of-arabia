@@ -1,14 +1,12 @@
 var DomLayer = Class.create({
-	//init
-	initialize : function($super,options){
-		$super()
+	
+	init : function(options){
 		this.zIndex = this.options.zIndex
 	},
 	
 	attach : function(sprite){
-		sprite.layer = this
+		console.log(sprite)
 		sprite.setZIndex(this.zIndex);
-		this.sprites.push(sprite)
 		if(!this.visible){
 			sprite.hide()
 		}

@@ -1,11 +1,12 @@
 //sprite for  plus  options 
-var MySprite = Class.create( {
+var MySprite = Class.create(DomSprite, {
 	rotation : 0,
 	visible : true,
 	layer : null,
 	cannonRotation : 0,
 	counter : 0,
-	initialize : function(images, owner, properties){
+	initialize : function($super,images, owner, properties){
+		$super(images,owner,properties)
 		this.images = images
 		this.owner = owner
 		Object.extend(this, properties)

@@ -1,5 +1,5 @@
 var DomSprite = Class.create({
-
+	zIndex : 0,
 	init:function(){
 		this.div = $(document.createElement('div')).setStyle({
 			position:'absolute',
@@ -13,9 +13,10 @@ var DomSprite = Class.create({
 		);
 		$("gamediv").appendChild(this.div);
 		console.log(this.images)
-		this.div.appendChild(this.images.clone());
+		this.div.appendChild(this.images[this.currentFrame].clone());
 
 	},
+	
 	setCurrentFrame : function(i){
 		this.currentFrame = i;
 		this.div.removeChild(this.dev.firstChild);
@@ -35,7 +36,7 @@ var DomSprite = Class.create({
 		this.rotation = deg
 		var isRotating = this.rotation != 0&&this.rotation<360;
 		if(isRotating) {
-			this.spriteDiv.setStyle({
+			this.div.setStyle({
 					MozTransform : "rotate("+this.rotation +"deg)",
 					WebKitTransform : "rotate("+this.rotation+"deg)",
 					msTransform : "rotate("+this.rotation+"deg)"
@@ -47,7 +48,7 @@ var DomSprite = Class.create({
 		this.rotation =deg
 		var isRotating = this.rotation != 0&&this.rotation<360;
 		if(isRotating) {
-			this.spriteDiv.setStyle({
+			this.div.setStyle({
 				MozTransformOrigin : x+"px "+y+ "px",
 				MozTransform : "rotate("+this.rotation +"deg)",
 				WebKitTransformOrigin :  x+"px "+y+ "px",
@@ -59,20 +60,20 @@ var DomSprite = Class.create({
 		return this
 	},
 	show : function() {
-		this.spriteDiv.setStyle({display : 'block'});
+		this.div.setStyle({display : 'block'});
 		return this
 	},
 	hide : function() {
-		this.spriteDiv.setStyle({display : 'none'});
+		this.div.setStyle({display : 'none'});
 		return this
 	},
 	setZIndex:function (index){
-		this.spriteDiv.setStyle({'z-index' : index});
+		this.div.setStyle({'z-index' : index});
 		return this;
-	}
-	,
+	},
+	
 	destroy : function() {
 		this.layer = null
-		this.spriteDive.remove();
+		this.div.remove();
 	}
 })
