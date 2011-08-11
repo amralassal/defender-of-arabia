@@ -6,21 +6,19 @@ var GameScene = Class.create(Scene,{
 	initialize : function($super,game){
 		$super();
 		this.game = game
-		this.buildingLayer = new Layer({ctx : $("gamecanvas").getContext("2d")});
-		this.buildingLayer.extend(new CanvasLayer());
-		this.layers.push(this.buildingLayer);
-		// var domLayer = new DomLayer();
-		// this.groundLayer = new Layer(0);
-		// this.buildingLayer = new Layer(600);
-		// this.buildingLayer.extend(domLayer);
-		// this.flyingLayer = new Layer(1200);
-		// this.optionLayer = new Layer(1800);
+		//this.buildingLayer = new Layer({ctx : $(name).getContext("2d")});
+		//this.buildingLayer.extend(new CanvasLayer());
+		//this.layers.push(this.buildingLayer);
+		 var domLayer = new DomLayer();
+		 this.groundLayer = new Layer({zIndex : 0 });
+		 this.buildingLayer = new Layer({zIndex : 600});
+		 this.buildingLayer.extend(domLayer);
 		
 	},
 	
 	initScene :function(){
-		// this.addTower();
-		// this.addTank();
+		this.addTower();
+	    this.addTank();
 		this.addImage();
 		this.game.menu.addWeapon("heal_button");
 		this.game.menu.addWeapon("hyper_button");

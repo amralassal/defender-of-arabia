@@ -12,7 +12,6 @@ var Layer = Class.create({
 	},
 	
 	attach : function(sprite){
-		alert("in attach layer")
 		sprite.layer = this
 		this.sprites.push(sprite)
 		return this

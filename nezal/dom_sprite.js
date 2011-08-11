@@ -11,8 +11,7 @@ var DomSprite = Class.create({
 		}
 	
 		);
-		$("gamediv").appendChild(this.div);
-		console.log(this.images)
+		$(name).appendChild(this.div);
 		this.div.appendChild(this.images[this.currentFrame].clone());
 
 	},
