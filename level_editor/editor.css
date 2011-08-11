@@ -1,0 +1,41 @@
+
+#images{
+	width : 200px;
+	height: 200px;
+	position:absolute;
+	border-width: 5px;
+    border-style: solid;
+    border-color: black;
+    left: 750px;
+    top : 350px;
+	background-color: #00FFFF ;
+	
+}
+
+body {
+	background-color: #E8E8E8  ;
+}
+
+#drawingarea{
+	width:700px;
+	height:600px;
+	position:absolute;
+	border-width: 5px;
+    border-style: solid;
+    left : 0px;
+    top : 50px;
+    border-color: black;
+	background-color: white;
+}
+
+#container{
+	width:1000px;
+	height:700px;
+	position:absolute;
+	border-width: 5px;
+    border-style: solid;
+    border-color: black;
+	background-color: #E9CFEC ;
+}
+
+

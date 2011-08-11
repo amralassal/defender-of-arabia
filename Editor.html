@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="level_editor/editor.css" />
+		<script src="base/prototype.js" type="text/javascript"></script>
+		<script src="base/effects.js" type="text/javascript"></script>
+		<script src="base/template.js" type="text/javascript"></script>
+		<script src="level_editor/levelEditor.js" type="text/javascript"></script>
+		
+		<script type=text/javascript>
+		 function submitBG(){
+		 	var levelEditor = new LevelEditor($('directory').value);
+		 }
+		</script>
+	</head>
+	<body>
+	
+	<div id="container">
+	<div id="drawingarea"></div>
+	BackGround URL : <input type ="text" id="directory">
+	<button type="ok" onclick="submitBG()"  style="position:absolute; left:300; top :0">OK </button>
+	<button type="Layer" onclick="addLayer()" style="position:absolute; left:900; top :30">layer </button>
+	<button type="Tower" onclick="addTower()" style="position:absolute; left:900; top :90">Tower </button>
+	<button type="Obstacle" onclick="addObstacle()" style="position:absolute; left:900; top :150">Obstacle </button>
+	<button type="Start" onclick="start()" style="position:absolute; left:900; top :210">Start </button>
+	<button type="End" onclick="End()" style="position:absolute; left:900; top :270">End </button>
+	<button type="GenerateLevel" onclick="GenerateLevel()" style="position:absolute; left:800; top :600">Generate Level </button>
+	
+	</div>
+	</body>
+</html>
