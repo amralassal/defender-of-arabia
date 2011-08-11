@@ -5,16 +5,19 @@ var GameScene = Class.create(Scene,{
 	initialize : function($super,game){
 		$super();
 		this.game = game
-		this.groundLayer = new Layer(0);
-		this.buildingLayer = new Layer(600);
-		this.flyingLayer = new Layer(1200);
-		this.optionLayer = new Layer(1800);
+		// this.groundLayer = new Layer();
+		
+		this.buildingLayer = new Layer({ctx : $("gamecanvas").getContext("2d")});
+		this.buildingLayer.extend(new CanvasLayer());
+		this.layers.push(this.buildingLayer);
+		// this.flyingLayer = new Layer();
+		// this.optionLayer = new Layer();
 		
 	},
 	
 	initScene :function(){
-		this.addTower();
-		this.addTank();
+		// this.addTower();
+		// this.addTank();
 		this.addImage();
 		this.game.menu.addWeapon("heal_button");
 		this.game.menu.addWeapon("hyper_button");
@@ -37,6 +40,6 @@ var GameScene = Class.create(Scene,{
 	
 	addImage : function(){
 		var imageDisp = new imagedisplay(300,300);
-		this.buildingLayer.attach(imageDisp);
+		this.buildingLayer.attach(imageDisp.sprite);
 	}
 })

@@ -7,7 +7,7 @@ var CanvasLayer = Class.create({
 	render : function(){
 		try{
 			if(!this.visible) return
-
+				// this.ctx.fillRect(0, 0, 600, 500)
 			if(this.clear){
 				this.ctx.clearRect(0, 0, 600, 500)
 			}

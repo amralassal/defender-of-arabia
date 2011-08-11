@@ -21,8 +21,9 @@ var CanvasSprite = Class.create({
 		
 		return this
 	},
-	render : function(ctx){
-			
+	render : function(){
+		ctx = this.layer.ctx;
+			console.log(this.x+this.shiftX+this.centerX, this.y+this.shiftY+this.centerY)
 		if(this.owner.dead){
 			return this.destroy()
 		}
@@ -31,12 +32,15 @@ var CanvasSprite = Class.create({
 
 		ctx.save()
 		var isRotating = this.owner.rotation != 0&&this.owner.rotation<360;
-		ctx.translate(this.owner.x+this.shiftX+this.centerX, this.owner.y+this.shiftY+this.centerY)
+		// console.log(this.x+this.shiftX+this.centerX, this.y+this.shiftY+this.centerY)
+			ctx.strokeRect(this.x+this.shiftX+this.centerX, this.y+this.shiftY+this.centerY,50,50)
+		// ctx.translate(this.x+this.shiftX+this.centerX, this.y+this.shiftY+this.centerY)
+	
 		if(isRotating){
 			ctx.rotate(this.rotation)
 		}
 		if(this.draw&&this.images[this.currentFrame]){
-			ctx.drawImage(this.images[this.currentFrame],this.transitionX+this.owner.x+this.shiftX-this.centerX,this.owner.y+this.shiftY+this.transitionY-this.centerY)
+			ctx.drawImage(this.images[this.currentFrame],this.transitionX+this.x+this.shiftX-this.centerX,this.y+this.shiftY+this.transitionY-this.centerY)
 		}
 		ctx.restore();
 

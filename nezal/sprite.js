@@ -13,6 +13,7 @@ var Sprite = Class.create({
 	initialize : function(images, owner, properties) {
 		this.images = images
 		this.owner = owner
+		this.visible = true;
 		Object.extend(this, properties)
 		if(images[0]) {
 			if(!this.w)
@@ -46,7 +47,7 @@ var Sprite = Class.create({
 		return this
 	},
 	render : function(ctx) {
-		
+		alert("render Here");
 	},
 	destroy : function() {
 		this.layer = null
