@@ -24,6 +24,7 @@ var Layer = Class.create({
 	},
 
 	render : function(){
+		return this
 	}
 }
 )

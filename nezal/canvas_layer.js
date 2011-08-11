@@ -1,10 +1,6 @@
 var CanvasLayer = Class.create({
 	
-	attach : function(sprite){
-		sprite.layer = this
-		this.sprites.push(sprite)
-		return this
-	},
+
 		
 	render : function(){
 		try{
