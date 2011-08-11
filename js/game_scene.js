@@ -32,7 +32,6 @@ var GameScene = Class.create(Scene,{
 	
 	addTank : function(){
 		var tankDisplay = new TankIDisplay(200,200);
-		alert("in add tank")
 		this.buildingLayer.attach(tankDisplay.sprite);
 		tankDisplay.moveTo(10,10);
 		tankDisplay.rotate(90);
