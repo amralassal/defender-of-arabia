@@ -1,10 +1,9 @@
 var Layer = Class.create({
 	
-	initialize : function(property,type){ // z-index or ctx
+	initialize : function(options){ // z-index or ctx
 		this.sprites = []
 		this.visible = true
-		this.property = property;
-		Object.extend(this,type);
+		this.options = options || {};
 	},
 		
 	attach : function(sprite){
@@ -24,6 +23,7 @@ var Layer = Class.create({
 	},
 
 	render : function(){
+		return this
 	}
 }
 )
