@@ -58,15 +58,14 @@ var TankIDisplay = Class.create(Display,TankI,{
 var imagedisplay = Class.create(Display,TankI,{
 	initialize : function($super,x,y){
 		$super(x,y);
-		var dSprite = new DomSprite(this.images,this,{rotation:0});
+		var dSprite = new DomSprite();
 		this.sprite = new Sprite(this.images,this,{rotation:0});
 		this.sprite.extend(dSprite);
 		
 	},
 	initImages : function (){
-		this.images={
-			base : Loader.images.game_elements['humvee_body.png']
-		}
+		this.images= Loader.images.game_elements['humvee_body.png']
+		
 	}
 })
 

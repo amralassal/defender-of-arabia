@@ -11,9 +11,9 @@ var DomSprite = Class.create({
 		}
 	
 		);
-			alert("in sprite dom");
 		$("gamediv").appendChild(this.div);
-		this.div.appendChild(this.images.first);
+		console.log(this.images)
+		this.div.appendChild(this.images.clone());
 
 	},
 	setCurrentFrame : function(i){
