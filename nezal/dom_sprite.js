@@ -1,4 +1,5 @@
 var DomSprite = Class.create({
+
 	init:function(){
 		this.div = $(document.createElement('div')).setStyle({
 			position:'absolute',
@@ -6,18 +7,21 @@ var DomSprite = Class.create({
 			top:this.owner.y+'px',
 			width: this.owner.width+'px',
 			height:this.owner.length+'px'
+			
 		}
+	
 		);
-		
 		$("gamediv").appendChild(this.div);
-		this.div.appendChild(this.images.first);
+		console.log(this.images)
+		this.div.appendChild(this.images.clone());
 
 	},
-	setCurrentFrame : function(index){
-		this.currentFrame = index;
+	setCurrentFrame : function(i){
+		this.currentFrame = i;
 		this.div.removeChild(this.dev.firstChild);
 		this.div.appendChild(this.images[i]);
 	},
+	
 	moveTo : function(x, y) {
 		this.x = x
 		this.y = y

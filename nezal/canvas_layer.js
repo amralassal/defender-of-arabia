@@ -1,9 +1,9 @@
 var CanvasLayer = Class.create({
-	
+
+
 	init : function(options){
 		this.ctx = this.options.ctx
 	},
-			
 	render : function(){
 		try{
 			if(!this.visible) return
