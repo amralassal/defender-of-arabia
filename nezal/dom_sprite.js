@@ -31,28 +31,26 @@ var DomSprite = Class.create({
 		});
 		return this
 	},
-	rotate : function(deg) {
+	moveBy : function(x, y) {
+		this.x += x
+		this.y += y
+		this.div.setStyle({
+			left:this.x+'px',
+			top:this.y+'px'
+		});
+		return this
+	},
+	
+	rotate : function(deg){
 		this.rotation = deg
 		var isRotating = this.rotation != 0&&this.rotation<360;
 		if(isRotating) {
 			this.div.setStyle({
-					MozTransform : "rotate("+this.rotation +"deg)",
-					WebKitTransform : "rotate("+this.rotation+"deg)",
-					msTransform : "rotate("+this.rotation+"deg)"
-			});
-		}
-		return this
-	},
-	rotateAround : function(x,y,deg){
-		this.rotation =deg
-		var isRotating = this.rotation != 0&&this.rotation<360;
-		if(isRotating) {
-			this.div.setStyle({
-				MozTransformOrigin : x+"px "+y+ "px",
+				MozTransformOrigin : this.centerX+"px "+this.centerY+ "px",
 				MozTransform : "rotate("+this.rotation +"deg)",
-				WebKitTransformOrigin :  x+"px "+y+ "px",
+				WebKitTransformOrigin :  this.centerX+"px "+this.centerY+ "px",
 				WebKitTransform : "rotate("+this.rotation+"deg)",
-				msTransformOrigin : x+"px "+y+ "px",
+				msTransformOrigin : this.centerX+"px "+this.centerY+ "px",
 				msTransform : "rotate("+this.rotation+"deg)"
 			});
 		}
@@ -64,9 +62,8 @@ var DomSprite = Class.create({
 		return this
 	},
 	rotateBy : function(deg){
-		this.centerX = x;
-		this.centerY = y;
-		this.rotation += Nezal.degToRad(deg)
+		this.rotation += deg
+		this.rotate(this.rotation)
 		return this
 	},
 	show : function() {
