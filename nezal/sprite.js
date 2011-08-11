@@ -22,8 +22,12 @@ var Sprite = Class.create({
 		}
 		this.currentFrame = 0
 		this.draw = true;
-		this.init();
 	},
+	extend :function (obj){
+		Object.extend(this,obj);
+		this.init();	
+	} ,
+	
 	moveTo : function(x, y) {
 		this.x = x
 		this.y = y

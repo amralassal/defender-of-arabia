@@ -1,6 +1,5 @@
 var DomSprite = Class.create({
-	initialize:function($super){
-		$super();
+	init:function(){
 		this.div = $(document.createElement('div')).setStyle({
 			position:'absolute',
 			left:this.owner.x+'px',
@@ -11,7 +10,7 @@ var DomSprite = Class.create({
 		);
 		
 		$("gamediv").appendChild(this.div);
-		this.div.appendChild(this.images[0]);
+		this.div.appendChild(this.images.first);
 
 	},
 	setCurrentFrame : function(index){

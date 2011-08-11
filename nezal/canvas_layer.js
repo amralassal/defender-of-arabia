@@ -1,7 +1,6 @@
 var CanvasLayer = Class.create({
 	
-	initialize : function($super, options){
-		$super()
+	init : function(options){
 		this.ctx = this.options.ctx
 	},
 			
