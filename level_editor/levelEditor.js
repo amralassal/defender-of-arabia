@@ -33,9 +33,7 @@ var LevelEditor = Class.create({
 		  this.imageMenuDiv.appendChild(div);
 		  div.appendChild(this.arrImage[i]);
 		  var actionSelf=this.action;
-		  this.action.addAction(div,function(){actionSelf.tileEnter()},'mouseenter'); 
-		  this.action.addAction(div,function(e){actionSelf.clickTile(e)},'click');
-		  this.action.addAction(div,function(){actionSelf.tileExit()},'mouseout');
+		  this.action.addAction(div,function(e){actionSelf.clickRoad(e)},'click');
 		}
 },
 	addLayer : function (){
@@ -47,6 +45,8 @@ var LevelEditor = Class.create({
 			this.index=this.index+1;
 			var layer = new Layer();
 			this.arrayLayer.push(layer);
+			var actionSelf=this.action;
+		    this.action.addAction(b,function(e){actionSelf.layerClick(e)},'click');
 			
 	},
     
