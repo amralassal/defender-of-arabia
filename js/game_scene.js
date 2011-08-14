@@ -6,23 +6,20 @@ var GameScene = Class.create(Scene,{
 	initialize : function($super,game){
 		$super();
 		this.game = game
-		this.toDom()
-		// this.toCanvas();
+		// this.toDom()
+		this.toCanvas();
 		this.action = new ActionHandler();
 		//dom
-		this.groundLayer = new Layer({zIndex : 0 });
-		this.buildingLayer = new Layer({zIndex : 600});
+
 		//canvas
-		// this.groundLayer = new Layer({ ctx : $(CONTAINER_NAME).getContext("2d") });
-		// this.buildingLayer = new Layer({ ctx : $(CONTAINER_NAME).getContext("2d")});
-		
+		// this.groundLayer = createLayer();
+		this.buildingLayer = createLayer();
 		this.layers.push(this.buildingLayer);
 		 wactionHandler = this.action
 		 wactionHandler.startMouseObserver($(CONTAINER_NAME));
 		 this.action.addAction($(CONTAINER_NAME),wactionHandler.clickTile,'click');
 		
 	},
-	
 	initScene :function(){
 		// this.addTower();
 	    // this.addTank();

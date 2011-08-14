@@ -1,6 +1,6 @@
 var Game = Class.create({
 	initialize: function(n){
-		 CONTAINER_NAME = n
+		 this.CONTAINER_NAME = n
 		var gameElementsImages = [
 		 "doubleturret_button.png", 
 		 "heal_button.png", 
