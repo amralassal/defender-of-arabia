@@ -2,15 +2,15 @@ var LevelEditor = Class.create({
 	
 	initialize : function (directory){
 		this.bgDirectory = directory
-		console.log(this.bgDirectory);
 		var img = new Image();
 		img.src = this.bgDirectory;
+		img.width = 700;//width and height of drawing area 
+		img.height = 600;
 		this.imageDiv = new Hash();
 		this.imageMenuDiv = document.createElement('div');
 		this.imageMenuDiv.id="images";
 		$("container").appendChild(this.imageMenuDiv);
 		$("drawingarea").appendChild(img);
-		console.log(img)
 		this.arrImage = new Array();
 		var img1 = new Image();
 		img1.src = "images/mystry_button.png";
@@ -18,12 +18,10 @@ var LevelEditor = Class.create({
 		var img2 = new Image();
 		img2.src = "images/reaper_2_inaction_right.png";
 		this.arrImage[1] = img2 //put in separate method >>>>>>>>>>>>>>
-		console.log("initialize")
 		this.loadImages();
 	},
 	
 	loadImages : function (){
-		console.log("load")
 		for(var i=0;i<2;i++){
 			var div =	this.imageDiv.set("name"+i ,$(document.createElement('div')).setStyle({
 			position:'absolute',

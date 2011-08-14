@@ -15,8 +15,8 @@ var GameScene = Class.create(Scene,{
 		 this.buildingLayer = new Layer({zIndex : 600});
 		 this.buildingLayer.extend(domLayer);
 		 wactionHandler = this.action
-		 wactionHandler.startMouseObserver($("gamediv"));
-		 this.action.addAction($("gamediv"),wactionHandler.clickTile,'click');
+		 wactionHandler.startMouseObserver($(CONTAINER_NAME));
+		 this.action.addAction($(CONTAINER_NAME),wactionHandler.clickTile,'click');
 		
 	},
 	

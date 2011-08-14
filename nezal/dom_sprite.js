@@ -11,7 +11,7 @@ var DomSprite = Class.create({
 		}
 	
 		);
-		$(name).appendChild(this.div);
+		$(CONTAINER_NAME).appendChild(this.div);
 		this.div.appendChild(this.images[this.currentFrame].clone());
 
 	},

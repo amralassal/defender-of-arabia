@@ -5,7 +5,6 @@ var DomLayer = Class.create({
 	},
 	
 	attach : function(sprite){
-		console.log(sprite)
 		sprite.setZIndex(this.zIndex);
 		if(!this.visible){
 			sprite.hide()
