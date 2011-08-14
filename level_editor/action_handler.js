@@ -13,7 +13,8 @@ var ActionHandler =  Class.create({
 	},
 	
 	addAction : function(div , action , onEvent){
-		div.observe(onEvent,function(){action.apply(div)});
+		console.log("add ",div)
+		div.observe(onEvent,action);
 	},
 	startMouseObserver : function(div){
 		var actionHandlerSelf=this
@@ -36,13 +37,16 @@ var ActionHandler =  Class.create({
 	stopMouseObserver : function(div){
 		// div.stopObserving('mousemove',observerFn);
 	},
-	clickTile : function(){ // on tile click
-		alert("inTile: "+wactionHandler.crtTilePosX+","+wactionHandler.crtTilePosY);
+	clickTile : function(e){ // on tile click
+		console.log("click")
+		console.log(e.element())
 	},
 	tileEnter : function(){ // new one
-		console.log("inTile: "+this.crtTilePosX+","+this.crtTilePosY);
+		//console.log("inTile: "+this.crtTilePosX+","+this.crtTilePosY);
+		console.log("enter");
 	},
 	tileExit :function(){ // old one
+		console.log("exit")
 		
 	},
 		
