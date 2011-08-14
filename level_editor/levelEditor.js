@@ -7,6 +7,8 @@ var LevelEditor = Class.create({
 		img.width = 700;//width and height of drawing area 
 		img.height = 600;
 		this.imageDiv = new Hash();
+		this.arrayLayer = new Array();
+		this.index = 1;
 		this.imageMenuDiv = document.createElement('div');
 		this.imageMenuDiv.id="images";
 		$("container").appendChild(this.imageMenuDiv);
@@ -32,5 +34,16 @@ var LevelEditor = Class.create({
 		  this.imageMenuDiv.appendChild(div);
 		  div.appendChild(this.arrImage[i])
 		}
+},
+	addLayer : function (){
+			var b = document.createElement('button');
+			$('container').appendChild(b);
+			b.id = this.index -1;
+			b.setStyle({position : 'absolute' , left : (750)+"px" , top : (20+30*this.index)+"px" });
+			b.innerHTML = "layer "+this.index;
+			this.index=this.index+1;
+			var layer = new Layer();
+			this.arrayLayer.push(layer);
+			
 	}
 })
