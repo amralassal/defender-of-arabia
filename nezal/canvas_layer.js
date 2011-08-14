@@ -1,11 +1,13 @@
 var CanvasLayer = Class.create({
 
 
-	init : function(options){
+	initialize : function(options){
+		this.init(options);
 		this.ctx = this.options.ctx
 	},
 	render : function(){
 		try{
+			// alert("RENERING")
 			if(!this.visible) return
 			if(this.clear){
 				this.ctx.clearRect(0, 0, 600, 500)

@@ -1,6 +1,7 @@
 var DomLayer = Class.create({
 	
-	init : function(options){
+	initialize : function(options){
+		this.init(options);
 		this.zIndex = this.options.zIndex
 	},
 	

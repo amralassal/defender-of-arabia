@@ -6,14 +6,17 @@ var GameScene = Class.create(Scene,{
 	initialize : function($super,game){
 		$super();
 		this.game = game
-		//this.buildingLayer = new Layer({ctx : $(name).getContext("2d")});
-		//this.buildingLayer.extend(new CanvasLayer());
-		//this.layers.push(this.buildingLayer);
+		// this.toDom()
+		this.toCanvas();
 		this.action = new ActionHandler();
-		 var domLayer = new DomLayer();
-		 this.groundLayer = new Layer({zIndex : 0 });
-		 this.buildingLayer = new Layer({zIndex : 600});
-		 this.buildingLayer.extend(domLayer);
+		//dom
+		this.groundLayer = new Layer({zIndex : 0 });
+		this.buildingLayer = new Layer({zIndex : 600});
+		//canvas
+		this.groundLayer = new Layer({ ctx : $(CONTAINER_NAME).getContext("2d") });
+		this.buildingLayer = new Layer({ ctx : $(CONTAINER_NAME).getContext("2d")});
+		
+		this.layers.push(this.buildingLayer);
 		 wactionHandler = this.action
 		 wactionHandler.startMouseObserver($(CONTAINER_NAME));
 		 this.action.addAction($(CONTAINER_NAME),wactionHandler.clickTile,'click');
@@ -21,8 +24,8 @@ var GameScene = Class.create(Scene,{
 	},
 	
 	initScene :function(){
-		this.addTower();
-	    this.addTank();
+		// this.addTower();
+	    // this.addTank();
 		this.addImage();
 		
 		// this.game.menu.addWeapon("heal_button");

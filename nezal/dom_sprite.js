@@ -1,6 +1,7 @@
-var DomSprite = Class.create({
+var DomSprite = Class.create(Sprite,{
 	zIndex : 0,
-	init:function(){
+	initialize:function(images, owner, properties){
+		this.init(images, owner, properties);
 		this.div = $(document.createElement('div')).setStyle({
 			position:'absolute',
 			left:this.owner.x+'px',
@@ -18,7 +19,7 @@ var DomSprite = Class.create({
 	
 	setCurrentFrame : function(i){
 		this.currentFrame = i;
-		this.div.removeChild(this.dev.firstChild);
+		this.div.removeChild(this.div.firstChild);
 		this.div.appendChild(this.images[i]);
 	},
 	
