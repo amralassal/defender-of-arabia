@@ -1,7 +1,8 @@
 var CanvasSprite = Class.create({
-	init:function(){
-		this.centerX = 0
-		this.centerY =0
+	initialize:function(images, owner, properties){
+		this.init(images, owner, properties);
+		this.centerX = 0;
+		this.centerY =0;
 		return this
 	},
 	

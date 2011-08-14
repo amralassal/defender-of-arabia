@@ -36,6 +36,16 @@ var Scene = Class.create(_Render, {
 		this.reactor.push(delay, func, callback)
 		return this
 	},
+	toDom :function(){
+		Object.extend(Layer.prototype ,DomLayer.prototype);
+		 Object.extend(Sprite.prototype , DomSprite.prototype);
+		return this
+	},
+	toCanvas :function(){
+		Object.extend(Layer.prototype ,CanvasLayer.prototype);
+		Object.extend(Sprite.prototype , CanvasSprite.prototype);
+		return this
+	},
 	//runs the reactor , starts _tick function and then render the start
 	start : function(){
 		this.running = true
