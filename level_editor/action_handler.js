@@ -10,13 +10,15 @@ var ActionHandler =  Class.create({
 		this.crtTilePosY = 0;
 		this.prevTilePosX = -1;
 		this.prevTilePosY = -1;
+		this.startMouseObserver(document.getElementById("drawingarea"));
 	},
 	
 	addAction : function(div , action , onEvent){
-		console.log("add ",div)
 		div.observe(onEvent,action);
 	},
 	startMouseObserver : function(div){
+		var actionSelf = this;
+		this.addAction(div,function(e){actionSelf.clickTile(e)},'click');
 		var actionHandlerSelf=this
 		var observerFn = function(e){
 			var posX = e.pointerX();
@@ -37,18 +39,35 @@ var ActionHandler =  Class.create({
 	stopMouseObserver : function(div){
 		// div.stopObserving('mousemove',observerFn);
 	},
-	clickTile : function(e){ // on tile click
-		console.log("click")
-		console.log(e.element())
+	clickRoad : function (e){
+		this.selectedObject = e.element();
 	},
-	tileEnter : function(){ // new one
-		//console.log("inTile: "+this.crtTilePosX+","+this.crtTilePosY);
-		console.log("enter");
+	clickTile : function(e){ 
+		console.log("click map")
+		if(this.selectedObject)//i select path tile
+			{
+				console.log(this.selectedObject.parentNode)
+				var tile = document.getElementById(this.selectedObject.parentNode.id).cloneNode(true).setStyle({
+					position : 'absolute',
+					top : e.pointerY()- 100,
+					left : e.pointerX()
+				});
+				$('drawingarea').appendChild(tile);
+				
+			}
+		
+	},
+	tileEnter : function(e){ // new one
+		console.log("inTile: "+this.crtTilePosX+","+this.crtTilePosY);
 	},
 	tileExit :function(){ // old one
 		console.log("exit")
 		
 	},
+	layerClick : function(e){
+		console.log(e.element().id)
+		
+	}
 		
 	
 })
