@@ -12,12 +12,14 @@ var GameScene = Class.create(Scene,{
 		//dom
 
 		//canvas
-		// this.groundLayer = createLayer();
+		// this.g(roundLayer = createLayer();
+		var div = ($("gamecanvas"))
 		this.buildingLayer = createLayer();
 		this.layers.push(this.buildingLayer);
-		 wactionHandler = this.action
-		 wactionHandler.startMouseObserver($(this.game.CONTAINER_NAME));
-		 this.action.addAction($(this.game.CONTAINER_NAME),wactionHandler.clickTile,'click');
+		 // wactionHandler = this.action
+		 // this.action.startMouseObserver(div);
+		 // this.action.addAction($(this.game.CONTAINER_NAME),wactionHandler.clickTile,'click');
+		 div.observe('click',this.action);
 		
 	},
 	initScene :function(){
