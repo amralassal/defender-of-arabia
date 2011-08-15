@@ -4,13 +4,14 @@ var LevelEditor = Class.create({
 		this.bgDirectory = directory
 		var img = new Image();
 		var drawingDiv =$("drawingarea");
-		this.action = new ActionHandler(drawingDiv);
+		this.action = new ActionHandler(drawingDiv,this);
 		img.src = this.bgDirectory;
 		img.width = drawingDiv.getWidth();//width and height of drawing area 
 		img.height = drawingDiv.getHeight();
 		this.imageDiv = new Hash();
 		this.arrayLayer = new Array();
-		this.index = 1;
+		this.arrayMaps = new Array();
+		this.index = 0;
 		this.imageMenuDiv = document.createElement('div');
 		this.imageMenuDiv.id="images";
 		$("container").appendChild(this.imageMenuDiv);
@@ -48,21 +49,33 @@ var LevelEditor = Class.create({
 		  var actionSelf=this.action;
 		  this.action.addAction(div,function(e){actionSelf.clickRoad(e)},'click');
 		}
-},
+	},
+	
 	addLayer : function (){
 			var b = document.createElement('button');
 			$('container').appendChild(b);
-			b.id = this.index -1;
+			b.id = this.index ;
 			b.setStyle({position : 'absolute' , left : (750)+"px" , top : (20+30*this.index)+"px" });
-			b.innerHTML = "layer "+this.index;
-			this.index=this.index+1;
+			b.innerHTML = "layer "+(this.index+1);
 			var layer = new Layer();
 			this.arrayLayer.push(layer);
+			this.arrayMaps.push(this.Create2DArray(13));
 			var actionSelf=this.action;
 		    this.action.addAction(b,function(e){actionSelf.layerClick(e)},'click');
+		    this.index=this.index+1;
 			
 	},
     
+	 Create2DArray : function (rows){
+	  var arr = new Array();
+	
+	  for (var i=0;i<rows;i++) {
+	     arr[i] = new Array(rows);
+	  }
+	
+	  return arr;
+	},
+
     loadRoadImages : function(){
     	var img1 = new Image();
 		img1.src = "images/path-curve 1.png";

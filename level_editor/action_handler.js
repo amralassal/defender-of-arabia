@@ -4,12 +4,16 @@
 var ActionHandler =  Class.create({
 	selectedObject : null ,
 	selectedTower : null,
+	selectedLayer : null , 
+
 	crtTilePosX : 0,
 	crtTilePosY : 0,
 	prevTilePosX : -1,
 	prevTilePosY : -1,
-	initialize : function(div){
+	
+	initialize : function(div,levelEditor){
 		this.div = div;
+		this.levelEditor = levelEditor;
 		this.startMouseObserver(div,document.getElementById("drawingarea"));
 	},
 	
@@ -40,16 +44,17 @@ var ActionHandler =  Class.create({
 	},
 	clickRoad : function (e){
 		this.selectedObject = e.element();
+		
 	},
 	clickTile : function(e){
 		// alert("inTile: "+this.crtTilePosX+","+this.crtTilePosY);
-		console.log("click map")
 		if(this.selectedObject)//i select path tile
 			{
 				console.log(this.selectedObject.parentNode)
 				// console.log((e.pointerY()-(e.pointerY()%50)),((e.pointerX()-(e.pointerX()%50))))
 				var posX = e.pointerX()- parseInt(this.div.getStyle('left'));
 				var posY = e.pointerY()- parseInt(this.div.getStyle('top'));
+
 
 		
 				var tile = document.getElementById(this.selectedObject.parentNode.id).cloneNode(true).setStyle({
@@ -58,6 +63,11 @@ var ActionHandler =  Class.create({
 					left :(posX-(posX%50))
 				});
 				$('drawingarea').appendChild(tile);
+				this.selectedLayer.attach(this.selectedObject);
+				var y = this.crtTilePosY
+				var x = this.crtTilePosX
+				this.levelEditor.arrayMaps[this.levelEditor.arrayLayer.indexOf(this.selectedLayer)][y][x] = true;
+				
 				
 			}
 		
@@ -70,8 +80,7 @@ var ActionHandler =  Class.create({
 		
 	},
 	layerClick : function(e){
-		console.log(e.element().id)
-		
+		this.selectedLayer = this.levelEditor.arrayLayer[e.element().id];
 	}
 		
 	
