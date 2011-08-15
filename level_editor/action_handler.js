@@ -4,6 +4,7 @@
 var ActionHandler =  Class.create({
 	selectedObject : null ,
 	selectedTower : null,
+	selectedLayer : null , 
 
 	initialize : function(div){
 		this.crtTilePosX = 0;
@@ -66,6 +67,7 @@ var ActionHandler =  Class.create({
 	},
 	layerClick : function(e){
 		console.log(e.element().id)
+		this.selectedLayer = e.element();
 		
 	}
 		

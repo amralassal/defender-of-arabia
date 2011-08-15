@@ -11,7 +11,7 @@ var LevelEditor = Class.create({
 		this.imageDiv = new Hash();
 		this.arrayLayer = new Array();
 		this.arrayMaps = new Array();
-		this.index = 1;
+		this.index = 0;
 		this.imageMenuDiv = document.createElement('div');
 		this.imageMenuDiv.id="images";
 		$("container").appendChild(this.imageMenuDiv);
@@ -41,14 +41,17 @@ var LevelEditor = Class.create({
 	addLayer : function (){
 			var b = document.createElement('button');
 			$('container').appendChild(b);
-			b.id = this.index -1;
+			b.id = this.index ;
 			b.setStyle({position : 'absolute' , left : (750)+"px" , top : (20+30*this.index)+"px" });
-			b.innerHTML = "layer "+this.index;
-			this.index=this.index+1;
+			b.innerHTML = "layer "+(this.index+1);
 			var layer = new Layer();
 			this.arrayLayer.push(layer);
+			var arr = new Array(13);
+			arr[this.index] = new Array(13);
+			this.arrayMaps.push(arr);
 			var actionSelf=this.action;
 		    this.action.addAction(b,function(e){actionSelf.layerClick(e)},'click');
+		    this.index=this.index+1;
 			
 	},
     
