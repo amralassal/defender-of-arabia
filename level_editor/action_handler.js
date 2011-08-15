@@ -10,7 +10,7 @@ var ActionHandler =  Class.create({
 		this.crtTilePosY = 0;
 		this.prevTilePosX = -1;
 		this.prevTilePosY = -1;
-		this.startMouseObserver(div,document.getElementById("drawingarea"));
+		this.startMouseObserver(document.getElementById("drawingarea"));
 	},
 	
 	addAction : function(div , action , onEvent){

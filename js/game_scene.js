@@ -1,23 +1,17 @@
 /**
  * @author Mazen
  */
-var GameScene = Class.create(Scene,{
+var GameScene = Class.create(SceneDom,{
 	
 	initialize : function($super,game){
 		$super();
 		this.game = game
-		// this.toDom()
-		this.toCanvas();
 		this.action = new ActionHandler();
-		//dom
-
-		//canvas
-		// this.groundLayer = createLayer();
-		this.buildingLayer = createLayer();
+		this.buildingLayer = this.createLayer(0);
 		this.layers.push(this.buildingLayer);
-		 wactionHandler = this.action
-		 wactionHandler.startMouseObserver($(this.game.CONTAINER_NAME));
-		 this.action.addAction($(this.game.CONTAINER_NAME),wactionHandler.clickTile,'click');
+		// wactionHandler = this.action
+		 //wactionHandler.startMouseObserver($(this.game.CONTAINER_NAME));
+		 //this.action.addAction($(this.game.CONTAINER_NAME),wactionHandler.clickTile,'click');
 		
 	},
 	initScene :function(){
