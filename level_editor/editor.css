@@ -17,13 +17,13 @@ body {
 }
 
 #drawingarea{
-	width:700px;
+	width:600px;
 	height:600px;
 	position:absolute;
 	border-width: 5px;
     border-style: solid;
-    left : 0px;
-    top : 50px;
+    left :40px;
+    top : 40px;
     border-color: black;
 	background-color: white;
 }

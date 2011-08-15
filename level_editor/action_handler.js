@@ -46,8 +46,6 @@ var ActionHandler =  Class.create({
 		console.log("click map")
 		if(this.selectedObject)//i select path tile
 			{
-				console.log(this.selectedObject.parentNode)
-				console.log((e.pointerY()-(e.pointerY()%50)),((e.pointerX()-(e.pointerX()%50))))
 		
 				var tile = document.getElementById(this.selectedObject.parentNode.id).cloneNode(true).setStyle({
 					position : 'absolute',
