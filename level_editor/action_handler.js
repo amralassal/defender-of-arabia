@@ -6,12 +6,14 @@ var ActionHandler =  Class.create({
 	selectedTower : null,
 	selectedLayer : null , 
 
+	crtTilePosX : 0,
+	crtTilePosY : 0,
+	prevTilePosX : -1,
+	prevTilePosY : -1,
+	
 	initialize : function(div){
-		this.crtTilePosX = 0;
-		this.crtTilePosY = 0;
-		this.prevTilePosX = -1;
-		this.prevTilePosY = -1;
-		this.startMouseObserver(document.getElementById("drawingarea"));
+		this.div = div;
+		this.startMouseObserver(div,document.getElementById("drawingarea"));
 	},
 	
 	addAction : function(div , action , onEvent){
@@ -22,14 +24,13 @@ var ActionHandler =  Class.create({
 		this.addAction(div,function(e){actionSelf.clickTile(e)},'click');
 		var actionHandlerSelf=this
 		var observerFn = function(e){
-			var posX = e.pointerX();
-			var posY = e.pointerY();
+			var posX = e.pointerX()- parseInt(div.getStyle('left'));
+			var posY = e.pointerY()- parseInt(div.getStyle('top'));
 			actionHandlerSelf.crtTilePosX = Math.floor(posX/50);
 			actionHandlerSelf.crtTilePosY = Math.floor(posY/50);
 			if(actionHandlerSelf.crtTilePosX != actionHandlerSelf.prevTilePosX  || actionHandlerSelf.crtTilePosY !=actionHandlerSelf.prevTilePosY){
 				actionHandlerSelf.tileEnter()
-				actionHandlerSelf.tileExit()
-				
+				actionHandlerSelf.tileExit()				
 				actionHandlerSelf.prevTilePosX = actionHandlerSelf.crtTilePosX
 				actionHandlerSelf.prevTilePosY = actionHandlerSelf.crtTilePosY
 				
@@ -43,15 +44,22 @@ var ActionHandler =  Class.create({
 	clickRoad : function (e){
 		this.selectedObject = e.element();
 	},
-	clickTile : function(e){ 
+	clickTile : function(e){
+		// alert("inTile: "+this.crtTilePosX+","+this.crtTilePosY);
 		console.log("click map")
 		if(this.selectedObject)//i select path tile
 			{
+				console.log(this.selectedObject.parentNode)
+				// console.log((e.pointerY()-(e.pointerY()%50)),((e.pointerX()-(e.pointerX()%50))))
+				var posX = e.pointerX()- parseInt(this.div.getStyle('left'));
+				var posY = e.pointerY()- parseInt(this.div.getStyle('top'));
+
+
 		
 				var tile = document.getElementById(this.selectedObject.parentNode.id).cloneNode(true).setStyle({
 					position : 'absolute',
-					top : (e.pointerY()-(e.pointerY()%50))-50,
-					left :(e.pointerX()-(e.pointerX()%50))
+					top : (posY-(posY%50)),
+					left :(posX-(posX%50))
 				});
 				$('drawingarea').appendChild(tile);
 				

@@ -7,6 +7,14 @@ var GameScene = Class.create(SceneDom,{
 		$super();
 		this.game = game
 		this.action = new ActionHandler();
+		// this.g(roundLayer = createLayer();
+		var div = ($("gamecanvas"))
+		this.buildingLayer = createLayer();
+		this.layers.push(this.buildingLayer);
+		 // wactionHandler = this.action
+		 // this.action.startMouseObserver(div);
+		 // this.action.addAction($(this.game.CONTAINER_NAME),wactionHandler.clickTile,'click');
+		 div.observe('click',this.action);
 		this.buildingLayer = this.createLayer(0);
 		this.layers.push(this.buildingLayer);
 		// wactionHandler = this.action
