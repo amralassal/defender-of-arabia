@@ -15,6 +15,18 @@ var LevelEditor = Class.create({
 		this.imageMenuDiv.id="images";
 		$("container").appendChild(this.imageMenuDiv);
 		$("drawingarea").appendChild(img);
+		
+		var grid = new Image();
+		grid.src = "images/grid.png";
+		$("drawingarea").setStyle({
+			'overflow' : 'hidden'
+		});
+		$("drawingarea").appendChild(grid).setStyle({
+			position :'absolute',
+			top : 0,
+			left : 0,
+		});
+		
 		this.arrImage = new Array();
 		this.loadRoadImages();
 		this.loadImages();
