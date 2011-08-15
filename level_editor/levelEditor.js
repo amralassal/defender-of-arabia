@@ -4,7 +4,7 @@ var LevelEditor = Class.create({
 		this.bgDirectory = directory
 		var img = new Image();
 		var drawingDiv =$("drawingarea");
-		this.action = new ActionHandler(drawingDiv);
+		this.action = new ActionHandler(drawingDiv,this);
 		img.src = this.bgDirectory;
 		img.width = drawingDiv.getWidth();//width and height of drawing area 
 		img.height = drawingDiv.getHeight();
@@ -37,7 +37,8 @@ var LevelEditor = Class.create({
 		  var actionSelf=this.action;
 		  this.action.addAction(div,function(e){actionSelf.clickRoad(e)},'click');
 		}
-},
+	},
+	
 	addLayer : function (){
 			var b = document.createElement('button');
 			$('container').appendChild(b);
@@ -46,15 +47,23 @@ var LevelEditor = Class.create({
 			b.innerHTML = "layer "+(this.index+1);
 			var layer = new Layer();
 			this.arrayLayer.push(layer);
-			var arr = new Array(13);
-			arr[this.index] = new Array(13);
-			this.arrayMaps.push(arr);
+			this.arrayMaps.push(this.Create2DArray(13));
 			var actionSelf=this.action;
 		    this.action.addAction(b,function(e){actionSelf.layerClick(e)},'click');
 		    this.index=this.index+1;
 			
 	},
     
+	 Create2DArray : function (rows){
+	  var arr = new Array();
+	
+	  for (var i=0;i<rows;i++) {
+	     arr[i] = new Array(rows);
+	  }
+	
+	  return arr;
+	},
+
     loadRoadImages : function(){
     	var img1 = new Image();
 		img1.src = "images/path-curve 1.png";
