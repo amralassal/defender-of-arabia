@@ -5,12 +5,12 @@ var ActionHandler =  Class.create({
 	selectedObject : null ,
 	selectedTower : null,
 
-	initialize : function(){
+	initialize : function(div){
 		this.crtTilePosX = 0;
 		this.crtTilePosY = 0;
 		this.prevTilePosX = -1;
 		this.prevTilePosY = -1;
-		this.startMouseObserver(document.getElementById("drawingarea"));
+		this.startMouseObserver(div,document.getElementById("drawingarea"));
 	},
 	
 	addAction : function(div , action , onEvent){
@@ -47,10 +47,12 @@ var ActionHandler =  Class.create({
 		if(this.selectedObject)//i select path tile
 			{
 				console.log(this.selectedObject.parentNode)
+				console.log((e.pointerY()-(e.pointerY()%50)),((e.pointerX()-(e.pointerX()%50))))
+		
 				var tile = document.getElementById(this.selectedObject.parentNode.id).cloneNode(true).setStyle({
 					position : 'absolute',
-					top : e.pointerY()- 100,
-					left : e.pointerX()
+					top : (e.pointerY()-(e.pointerY()%50))-50,
+					left :(e.pointerX()-(e.pointerX()%50))
 				});
 				$('drawingarea').appendChild(tile);
 				
@@ -61,7 +63,7 @@ var ActionHandler =  Class.create({
 		console.log("inTile: "+this.crtTilePosX+","+this.crtTilePosY);
 	},
 	tileExit :function(){ // old one
-		console.log("exit")
+		// console.log("exit")
 		
 	},
 	layerClick : function(e){

@@ -3,7 +3,8 @@ var LevelEditor = Class.create({
 	initialize : function (directory){
 		this.bgDirectory = directory
 		var img = new Image();
-		this.action = new ActionHandler();
+		var drawingDiv =$("drawingarea");
+		this.action = new ActionHandler(drawingDiv);
 		img.src = this.bgDirectory;
 		img.width = 700;//width and height of drawing area 
 		img.height = 600;

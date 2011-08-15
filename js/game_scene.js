@@ -16,8 +16,8 @@ var GameScene = Class.create(Scene,{
 		this.buildingLayer = createLayer();
 		this.layers.push(this.buildingLayer);
 		 wactionHandler = this.action
-		 wactionHandler.startMouseObserver($(CONTAINER_NAME));
-		 this.action.addAction($(CONTAINER_NAME),wactionHandler.clickTile,'click');
+		 wactionHandler.startMouseObserver($(this.game.CONTAINER_NAME));
+		 this.action.addAction($(this.game.CONTAINER_NAME),wactionHandler.clickTile,'click');
 		
 	},
 	initScene :function(){
