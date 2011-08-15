@@ -7,6 +7,8 @@
 		<script src="nezal/nezal.js" type="text/javascript"></script>
 		<script src="nezal/reactor.js" type="text/javascript"></script>
 		<script src="nezal/scene.js" type="text/javascript"></script>
+		<script src="nezal/scene_dom.js" type="text/javascript"></script>
+		<script src="nezal/scene_canvas.js" type="text/javascript"></script>
 		<script src="nezal/sprite.js" type="text/javascript"></script>
 		<script src="nezal/canvas_sprite.js" type="text/javascript"></script>
 		<script src="nezal/canvas_layer.js" type="text/javascript"></script>
@@ -24,7 +26,7 @@
 		<script src="js/game_scene.js" type="text/javascript"></script>
 		<script src="js/menu.js" type="text/javascript"></script>
 		<script src="js/game.js" type="text/javascript"></script>
-		<script src="level_editor/action_handler.js" type="text/javascript"></script>
+		<script src="js/action_handler.js" type="text/javascript"></script>
 	
 		
 		
@@ -36,7 +38,7 @@
 <script type=text/javascript>
 
 		    window.onload = startGame("gamecanvas");
-			function startGame (name){
+			function startGame (CONTAINER_NAME){
 			
 				game = new Game(name);
 			};
@@ -45,6 +47,7 @@
 <canvas id="gamecanvas"  width="700" height="450" style = "position:absolute;
 			left:50px;
 			top:50px;" ></canvas>
+			
 <div id="gamediv" style = "position:absolute;
 			left:50px;
 			top:50px;

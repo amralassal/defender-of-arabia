@@ -20,10 +20,6 @@ var _Render = {
 }
 
 var Scene = Class.create(_Render, {
-	//initializes the delay of the reactor
-	isCanvas : false ,
-	isDom : false ,
-	
 	initialize : function(delay){
 		this.running = false
 		this.delay = delay || 50
@@ -31,38 +27,17 @@ var Scene = Class.create(_Render, {
 		this.count = 0;
 		this.renderInitialize()
 	},
-	init : function(){
-	},
-	
 	createLayer:function(){
-		if(isDom){
-			return new Layer({zIndex : 0});
-		}
-		if(isCanvas){
-			new Layer({ ctx : $(CONTAINER_NAME).getContext("2d")})
-		}
 	},
 	//pushes an event to the reactor
 	push : function(delay, func, callback){
 		this.reactor.push(delay, func, callback)
 		return this
 	},
-	toDom :function(){
-	 Object.extend(Layer.prototype ,DomLayer.prototype);
-	 Object.extend(Sprite.prototype , DomSprite.prototype);
-	 this.isDom = true;
-		return this
-	},
-	toCanvas :function(){
-		Object.extend(Layer.prototype ,CanvasLayer.prototype);
-		Object.extend(Sprite.prototype , CanvasSprite.prototype);
-		this.isCanvas = true;
-		return this
-	},
 	//runs the reactor , starts _tick function and then render the start
 	start : function(){
 		this.running = true
-		this.init()
+		//this.init()
 		this.reactor.run()
 		var self = this
 		this.push(1, function(){self._tick()})
