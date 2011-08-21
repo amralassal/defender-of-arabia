@@ -6,14 +6,16 @@ var DomSprite = Class.create(Sprite,{
 			position:'absolute',
 			left:this.owner.x+'px',
 			top:this.owner.y+'px',
-			width: this.owner.width+'px',
-			height:this.owner.length+'px'
+			width: (this.owner.width)+'px',
+			height:(this.owner.height)+'px',
+			overflow : 'hidden'
 			
 		}
 	
 		);
 		$("gamediv").appendChild(this.div);
-		this.div.appendChild(this.images[this.currentFrame].clone());
+		if(this.images[this.currentFrame])
+			this.div.appendChild(this.images[this.currentFrame].clone());
 
 	},
 	

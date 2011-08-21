@@ -16,7 +16,8 @@ var Game = Class.create({
 		 "humvee_body.png",
 		 "humvee_tower.png",
 		 "doubleturret_button.png",
-		 "humvee_tower_in_action.png"
+		 "humvee_tower_in_action.png",
+		 "worker.png"
 		 ];
 		
 		 var self = this
@@ -25,7 +26,7 @@ var Game = Class.create({
 	     this.menu = new Menu(this);
 		 this.scene = new GameScene(this);
 	     this.scene.start();
-	     this.scene.initScene();
+	    this.scene.initScene();
 		 
 		}});
 		

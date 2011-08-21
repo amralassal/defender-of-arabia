@@ -9,21 +9,41 @@ var Creep = Class.create(Unit, {
 	cannonDisplacement : [-4, 0],
 	turningPoint : [0, 0],
 	range : 1,
-	
+	rute : [],
+	currentTile : 0,
+	tileWidth : 50,
+	tileHeight : 50,
+	speed : 10,
 	initialize : function($super,x,y){
 		$super(x,y)	
 	},
 	
 	tick : function(){
-		if(this.dead) 
-			return
-		if(!this.rotating){
+		if(this.dead) return
 		
+		if(!this.rotating){
+			var tileX = Math.floor(this.x/tileWidth);
+			var tileY = Math.floor(this.y/tileHeight);
+			if(tileX != rute[this.currentTile][1] || tileY != rute[this.currentTile][0]){
+				this.currentTile++;
+			}
+			if(rute[this.currentTile+1][1] > rute[this.currentTile][1]){
+				this.moveTo(this.x+speed,y);
+			}
+			else if(rute[this.currentTile+1][0] > rute[this.currentTile][0]){
+				this.moveTo(this.x,y+speed);
+			}
+			else{
+				// console.log("creep tick error");
+			}
 		}else{
 		
 		}
 	},
 	
+	beginMoving : function(){
+		this.moveTo(rute[0][1]* tileHeight,rute[0][0]*tileWidth)
+	},
 	
 	die : function(){
 	},

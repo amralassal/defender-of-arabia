@@ -16,9 +16,10 @@ var TankI = Class.create(Creep,{
 	//each tick call rotate in  display object , rotate in display object call  
 	//rotate sprite and rotate here 
 	
-	tick : function(){
-		this.rotate()
-	},
+	// tick : function(){
+// 		
+		// this.rotate()
+	// },
 	rotate  : function (){
 	}
 	

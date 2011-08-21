@@ -43,7 +43,7 @@ var Sprite = Class.create({
 		return this
 	},
 	render : function(ctx) {
-		alert("render Here");
+		console.log("render Here");
 	},
 	destroy : function() {
 		this.layer = null
