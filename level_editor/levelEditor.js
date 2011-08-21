@@ -1,16 +1,16 @@
 var LevelEditor = Class.create({
 	
 	initialize : function (directory){
-		this.bgDirectory = directory
+		this.bgDirectory = directory;  
 		var img = new Image();
 		var drawingDiv =$("drawingarea");
 		this.action = new ActionHandler(drawingDiv,this);
 		img.src = this.bgDirectory;
-		img.width = drawingDiv.getWidth();//width and height of drawing area 
+		img.width = drawingDiv.getWidth();
 		img.height = drawingDiv.getHeight();
 		this.imageDiv = new Hash();
-		this.arrayLayer = new Array();
-		this.arrayMaps = new Array();
+		this.arrayLayer = new Array(); 
+		this.map = this.create2DArray(12); 
 		this.index = 0;
 		this.imageMenuDiv = document.createElement('div');
 		this.imageMenuDiv.id="images";
@@ -33,6 +33,23 @@ var LevelEditor = Class.create({
 		this.loadImages();
 	},
 	
+	addObstacle : function(){
+		this.action.selectedButton = 2;
+		this.action.selectedObject = null;
+	},
+	
+	removeTile : function(){
+		this.action.selectedButton = 5;
+		this.action.selectedObject = null;
+	},
+	start : function(){
+		this.action.selectedButton = 3;
+		this.action.selectedObject = null;
+	},
+	end : function(){
+		this.action.selectedButton = 4;
+		this.action.selectedObject = null;
+	},
 	loadImages : function (){
 		for(var i=0;i<6;i++){
 			var div =	this.imageDiv.set("name"+i ,$(document.createElement('div')).setStyle({
@@ -58,19 +75,39 @@ var LevelEditor = Class.create({
 			b.setStyle({position : 'absolute' , left : (750)+"px" , top : (20+30*this.index)+"px" });
 			b.innerHTML = "layer "+(this.index+1);
 			var layer = new Layer();
+			layer.array = this.create2DArray(12);
 			this.arrayLayer.push(layer);
-			this.arrayMaps.push(this.Create2DArray(13));
 			var actionSelf=this.action;
 		    this.action.addAction(b,function(e){actionSelf.layerClick(e)},'click');
 		    this.index=this.index+1;
 			
 	},
     
-	 Create2DArray : function (rows){
+	createLevel : function (){
+		var objectJSON = {"backGround" : this.bgDirectory ,
+						  "arrayLayer" : this.arrayLayer,
+						  "map"        : this.map};
+						  
+		var text = 	Object.toJSON(objectJSON);
+		var textarea = document.createElement('textarea');
+		textarea.setStyle({
+			width : 200,
+			height: 100
+		});
+		textarea.innerHTML = text;
+		document.getElementById('level').appendChild(textarea); 
+	},
+	
+	create2DArray : function (rows){
 	  var arr = new Array();
 	
 	  for (var i=0;i<rows;i++) {
 	     arr[i] = new Array(rows);
+	  }
+	  for(var i=0;i<rows;i++){
+		for(var j=0;j<rows;j++){
+			arr[i][j]=false;
+		}
 	  }
 	
 	  return arr;

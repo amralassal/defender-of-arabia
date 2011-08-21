@@ -1,9 +1,12 @@
 var Layer = Class.create({
 	
 	initialize : function(options){ // z-index or ctx
-		this.sprites = []
-		this.visible = true
+		this.sprites = [];
+		this.visible = true;
 		this.options = options || {};
+		this.start = [];
+		this.end = [];
+		this.array = null;
 	},
 	
 	attach : function(sprite){
@@ -11,20 +14,19 @@ var Layer = Class.create({
 		this.sprites.push(sprite)
 		return this
 	},
-		
+	
 	show : function(){
-		this.visible = true
-		return this
+		for(var i=0;i<sprites.length;i++){
+			sprites[i].style.visibility='visible';
+		}
 	},
 	
 	hide : function(){
-		this.visible = false
-		return this
+		for(var i=0;i<sprites.length;i++){
+			sprites[i].style.visibility='hidden';
+		}
 	},
+	
 
-	render : function(){
-		alert("not REnder yet");
-		return this
-	}
 }
 )
