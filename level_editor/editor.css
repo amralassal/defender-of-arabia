@@ -3,13 +3,24 @@
 	width : 200px;
 	height: 200px;
 	position:absolute;
-	border-width: 5px;
+	border-width: 3px;
     border-style: solid;
     border-color: black;
     left: 750px;
-    top : 350px;
+    top : 200px;
 	background-color: #00FFFF ;
 	
+}
+#level {
+	width : 200px;
+	height: 100px;
+	position:absolute;
+	border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    left: 750px;
+    top : 430px;
+    background-color: white;
 }
 
 body {
