@@ -68,13 +68,13 @@ var ActionHandler =  Class.create({
 	addStart : function(){
 		var y = this.crtTilePosY;
 		var x = this.crtTilePosX;
-		this.selectedLayer.start.push([y,x]);
+		this.selectedLayer.start.push({'x' : x, 'y':y});
 		this.levelEditor.map[y][x] = true;
 	},
 	addEnd : function(){
 		var y = this.crtTilePosY;
 		var x = this.crtTilePosX;
-		this.selectedLayer.end.push([y,x]);
+		this.selectedLayer.end.push({'x' : x,'y':y});
 		this.levelEditor.map[y][x] = true;
 	},
 	remove : function (){

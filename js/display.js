@@ -85,6 +85,7 @@ var imagedisplay = Class.create(Display,TankI,{
 	},
 
 	tick : function(){
+		if(this.currentTile == this.rute.length) return
 		if(this.dead) return
 		// alert("ticking")
 		if(!this.rotating){

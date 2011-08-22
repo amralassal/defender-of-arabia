@@ -8,12 +8,15 @@ var Layer = Class.create({
 		this.end = [];
 		this.array = null;
 		this.arrayPictures = null;
+		this.zIndex = 0;
+		this.rutes = [];
 		
 	},
 	
 	attach : function(sprite){
-		sprite.layer = this
-		this.sprites.push(sprite)
+		sprite.layer = this;
+		this.sprites.push(sprite);
+		sprite.style.zIndex = this.zIndex;
 		return this
 	},
 	

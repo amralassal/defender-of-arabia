@@ -82,6 +82,7 @@ var LevelEditor = Class.create({
 			vsblty.setStyle({position : 'absolute' , left : (700)+"px" , top : (20+30*this.index)+"px" });
 			vsblty.innerHTML = "hide";
 			var layer = new Layer();
+			layer.zIndex = this.index;
 			layer.array = this.create2DArray(12);
 			layer.arrayPictures = this.create2DArray(12);
 			this.arrayLayer.push(layer);
