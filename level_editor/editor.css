@@ -49,4 +49,16 @@ body {
 	background-color: #E9CFEC ;
 }
 
+.on { 
+border:1px outset;
+color:#369;
+background:#efefef; 
+}
+
+.off {
+border:1px outset;
+color:#369;
+background:#f9d543; 
+}
+
 

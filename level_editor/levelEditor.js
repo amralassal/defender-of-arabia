@@ -67,18 +67,27 @@ var LevelEditor = Class.create({
 		  this.action.addAction(div,function(e){actionSelf.clickRoad(e)},'click');
 		}
 	},
-	
+    
 	addLayer : function (){
 			var b = document.createElement('button');
 			$('container').appendChild(b);
 			b.id = this.index ;
+			b.className = "on";
 			b.setStyle({position : 'absolute' , left : (750)+"px" , top : (20+30*this.index)+"px" });
-			b.innerHTML = "layer "+(this.index+1);
+			b.innerHTML = "Layer "+(this.index+1);
+			var vsblty = document.createElement('button');
+			$('container').appendChild(vsblty);
+			vsblty.className = "on";
+			vsblty.id = "v"+this.index;
+			vsblty.setStyle({position : 'absolute' , left : (700)+"px" , top : (20+30*this.index)+"px" });
+			vsblty.innerHTML = "hide";
 			var layer = new Layer();
 			layer.array = this.create2DArray(12);
+			layer.arrayPictures = this.create2DArray(12);
 			this.arrayLayer.push(layer);
 			var actionSelf=this.action;
 		    this.action.addAction(b,function(e){actionSelf.layerClick(e)},'click');
+			this.action.addAction(vsblty,function(e){actionSelf.hideClick(e)},'click');
 		    this.index=this.index+1;
 			
 	},

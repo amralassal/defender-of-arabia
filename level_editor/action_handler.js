@@ -60,6 +60,7 @@ var ActionHandler =  Class.create({
 					height : 50,
 					backgroundColor : 'red'
 				});
+				this.selectedLayer.attach(tile);
 				$('drawingarea').appendChild(tile);
 				tile.id =  y*12 + x;
 				this.levelEditor.map[y][x]=true;
@@ -68,15 +69,18 @@ var ActionHandler =  Class.create({
 		var y = this.crtTilePosY;
 		var x = this.crtTilePosX;
 		this.selectedLayer.start.push([y,x]);
+		this.levelEditor.map[y][x] = true;
 	},
 	addEnd : function(){
 		var y = this.crtTilePosY;
 		var x = this.crtTilePosX;
 		this.selectedLayer.end.push([y,x]);
+		this.levelEditor.map[y][x] = true;
 	},
 	remove : function (){
 		var index = this.crtTilePosY*12 + this.crtTilePosX;
 		$(index+"").remove();
+		this.levelEditor.map[this.crtTilePosY][this.crtTilePosX] = false;
 	},
 	clickTile : function(e){
 				var posX = e.pointerX()- parseInt(this.div.getStyle('left'));
@@ -93,8 +97,10 @@ var ActionHandler =  Class.create({
 					});
 					tile.id =  y*12 + x;
 					$('drawingarea').appendChild(tile);
-					this.selectedLayer.attach(this.selectedObject);
+					this.selectedLayer.attach(tile);
 					this.levelEditor.arrayLayer[this.levelEditor.arrayLayer.indexOf(this.selectedLayer)].array[y][x] = true;
+					this.levelEditor.arrayLayer[this.levelEditor.arrayLayer.indexOf(this.selectedLayer)].arrayPictures[y][x] = tile.childNodes[0].src;
+					this.levelEditor.map[y][x] = true;
 					}
 				else
 				{
@@ -104,18 +110,41 @@ var ActionHandler =  Class.create({
 						this.hashButton[this.selectedButton+""]();
 						}
 				}
-				
-			
-		
 	},
-	tileEnter : function(){ 
+	tileEnter : function(){
+		console.log("tile ",this.crtTilePosY,",",this.crtTilePosX);
 	},
 	tileExit :function(){ 
 	},
 	layerClick : function(e){
+		this.togglestyle(e.element());
 		this.selectedLayer = this.levelEditor.arrayLayer[e.element().id];
 		this.selectedObject = null;
 	},
+	
+	hideClick : function(e){
+	var idLayer = e.element().id.substring(1);
+	if(e.element().className == "on"){
+		e.element().className = "off";
+		this.levelEditor.arrayLayer[idLayer].hide();
+		}
+	else{
+		e.element().className = "on";
+		this.levelEditor.arrayLayer[idLayer].show();
+		}
+	},
+	
+	togglestyle : function (el){
+		var count = this.levelEditor.index - 1;
+		while(count >= 0)
+		{
+			document.getElementById(count).className = "on";
+			count-=1;
+			
+		}
+			el.className="off";
+		
+	}
 
 
 	

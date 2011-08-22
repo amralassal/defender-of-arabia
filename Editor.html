@@ -14,25 +14,46 @@
 		 function submitBG(){
 		 	 levelEditor = new LevelEditor($('directory').value);
 		 }
-		 
 		 function addLayer(){
 			levelEditor.addLayer();
 		 }
+		 function addObstacle(){
+			levelEditor.addObstacle();
+		 }
+		 function start(){
+		 	levelEditor.start();
+		 }
+		 function end(){
+		 	levelEditor.end();
+		 }
+		 function generateLevel(){
+			levelEditor.createLevel();
+		 }
+		 function removeTile(){
+			levelEditor.removeTile();
+		 }
+		 function togglestyle(el){
+		if(el.className == "on") {
+			el.className="off";
+		} else {
+			el.className="on";
+		}
+		}
 		</script>
 	</head>
 	<body>
 	
 	<div id="container">
+		<div id="level"></div>
 	<div id="drawingarea"></div>
 	BackGround URL : <input type ="text" id="directory">
 	<button type="ok" onclick="submitBG()"  style="position:absolute; left:300; top :0">OK </button>
-	<button type="Layer" onclick="addLayer()" style="position:absolute; left:900; top :30">layer </button>
-	<button type="Tower" onclick="addTower()" style="position:absolute; left:900; top :90">Tower </button>
-	<button type="Obstacle" onclick="addObstacle()" style="position:absolute; left:900; top :150">Obstacle </button>
-	<button type="Start" onclick="start()" style="position:absolute; left:900; top :210">Start </button>
-	<button type="End" onclick="End()" style="position:absolute; left:900; top :270">End </button>
-	<button type="Remove" onclick="Remove()" style="position:absolute; left:900; top :310">Remove </button>
-	<button type="GenerateLevel" onclick="GenerateLevel()" style="position:absolute; left:800; top :600">Generate Level </button>
+	<button type="Layer" onclick="addLayer()" style="position:absolute; left:900; top :40">layer </button>
+	<button type="Obstacle" onclick="addObstacle()" style="position:absolute; left:900; top :70">Obstacle </button>
+	<button type="Start" onclick="start()" style="position:absolute; left:900; top :100">Start </button>
+	<button type="End" onclick="end()" style="position:absolute; left:900; top :130">End </button>
+	<button type="Remove" onclick="removeTile()" style="position:absolute; left:900; top :160">Remove </button>
+	<button type="GenerateLevel" onclick="generateLevel()" style="position:absolute; left:800; top :600">Generate Level </button>
 	
 	</div>
 	</body>

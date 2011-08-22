@@ -7,6 +7,8 @@ var Layer = Class.create({
 		this.start = [];
 		this.end = [];
 		this.array = null;
+		this.arrayPictures = null;
+		
 	},
 	
 	attach : function(sprite){
@@ -16,14 +18,14 @@ var Layer = Class.create({
 	},
 	
 	show : function(){
-		for(var i=0;i<sprites.length;i++){
-			sprites[i].style.visibility='visible';
+		for(var i=0;i<this.sprites.length;i++){
+			this.sprites[i].style.visibility='visible';
 		}
 	},
 	
 	hide : function(){
-		for(var i=0;i<sprites.length;i++){
-			sprites[i].style.visibility='hidden';
+		for(var i=0;i<this.sprites.length;i++){
+			this.sprites[i].style.visibility='hidden';
 		}
 	},
 	
